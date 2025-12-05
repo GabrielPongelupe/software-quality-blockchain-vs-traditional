@@ -5,50 +5,22 @@
 
 ## 1. Identificação Básica
 
-### 1.1 Título do Experimento  
-**Comparação de Métricas de Qualidade entre Software Tradicional e Software Baseado em Blockchain: Um Estudo Empírico**
+**1.1 Título:** Comparação de Métricas de Qualidade entre Software Tradicional e Software Baseado em Blockchain: Um Estudo Empírico
 
-### 1.2 ID / Código  
-**ES-BC-QUAL-2025-01**
+**1.2 ID:** ES-BC-QUAL-2025-01
 
-### 1.3 Versão do Documento e Histórico de Revisão  
-- **1.0 — 23/11/2025:** Versão inicial do plano de experimento, contendo escopo, objetivos, hipóteses, variáveis e metodologia proposta.  
-*(Novas versões serão adicionadas conforme o andamento da coleta, análise e ajustes metodológicos.)*
+**1.3 Versão:** 1.0 (23/11/2025) – Versão inicial
 
-### 1.4 Datas  
-- **Data de criação:** 23 de novembro de 2025  
-- **Última atualização:** 23 de novembro de 2025  
-- **Período estimado de execução:** Novembro a Dezembro de 2025  
-- **Responsável pelas atualizações:** Gabriel Pongelupe
+**1.4 Datas:** Criação: 23/11/2025 | Execução prevista: Novembro-Dezembro/2025
 
-### 1.5 Autores  
-**Gabriel Pongelupe – Engenharia de Software**  
-Responsável pela elaboração do documento, definição metodológica, execução da coleta e síntese dos resultados.  
+**1.5 Autor:** Gabriel Pongelupe – Engenharia de Software
 
+**1.6 Responsável:** Gabriel Pongelupe (PI – Principal Investigator)
 
-### 1.6 Responsável Principal (PI – Principal Investigator)  
-**Gabriel Pongelupe**, atuando como pesquisador principal deste estudo.  
-Responsabilidades:  
-- definição das questões de pesquisa;  
-- elaboração das hipóteses e planejamento experimental;  
-- seleção e preparação dos artefatos;  
-- execução dos processos de coleta e normalização;  
-- aplicação das técnicas estatísticas;  
-- interpretação dos resultados e construção da conclusão final.
-
-### 1.7 Projeto / Iniciativa Relacionada  
-Este experimento integra as atividades da disciplina **Medição e Experimentação em Engenharia de Software**, cujo objetivo é aplicar rigor científico para investigar impactos de decisões de projeto e arquitetura em sistemas reais.  
-
-O estudo se relaciona com temas contemporâneos como:  
-- avaliação de qualidade em diferentes paradigmas de desenvolvimento;  
-- impacto da descentralização, imutabilidade e custos de execução em métricas objetivas de software;  
-- comparação empírica entre smart contracts e módulos tradicionais;  
-- evolução das práticas de engenharia no ecossistema blockchain;  
-- identificação de padrões arquiteturais decorrentes de restrições próprias de ambientes EVM e similares.
-
-Trata-se de uma iniciativa voltada a compreender, com base em evidências, como o paradigma blockchain influencia atributos essenciais de qualidade que afetam manutenção, complexidade e custo de evolução.
+**1.7 Projeto relacionado:** Disciplina de Medição e Experimentação em Engenharia de Software, investigando impactos de decisões arquiteturais em qualidade de software através de comparação empírica entre paradigmas blockchain e tradicional.
 
 ---
+
 
 ## 2. Contexto e Problema
 
@@ -66,100 +38,257 @@ Em consequência, surge uma oportunidade de pesquisa: **compreender, de maneira 
 
 Esse estudo busca preencher uma lacuna importante: embora existam trabalhos sobre verificação de segurança em smart contracts, **há pouca investigação empírica comparando diretamente métricas de software tradicionais com métricas de software blockchain**, o que é fundamental para entender o impacto real desse novo paradigma sobre o desenvolvimento e evolução de sistemas.
 
----
+### 2.2 Contexto organizacional e técnico
 
-### 2.2 Relevância Técnica, Científica e Industrial  
-A relevância deste experimento se manifesta em múltiplas esferas:
+**Tipo de organização / ambiente:**
 
-#### **Para engenheiros de software e desenvolvedores de smart contracts**  
-O estudo pode orientar decisões práticas sobre design, modularização, complexidade desejável e estratégias de manutenção, especialmente em ambientes onde erros podem resultar em perdas financeiras irreversíveis.
+Este experimento não ocorre dentro de uma organização específica, mas sim em um **ambiente de pesquisa acadêmica** que analisa **projetos de código aberto (OSS)** disponíveis publicamente em plataformas de hospedagem de código.
 
-#### **Para equipes de auditoria, segurança e qualidade**  
-Auditores lidam diariamente com a necessidade de compreender estruturas de smart contracts e avaliar riscos; métricas comparativas podem oferecer indicadores objetivos para priorizar pontos críticos.
+**Características do ambiente de coleta:**
 
-#### **Para a comunidade acadêmica**  
-Blockchain representa um novo tipo de artefato de software, com restrições distintas das estudadas em modelos tradicionais. Entender como essas restrições influenciam métricas pode abrir novas linhas de pesquisa sobre qualidade, evolução, arquiteturas distribuídas e engenharia empírica.
+*Plataformas:*
+- GitHub e GitLab (repositórios públicos)
+- Etherscan, Sourcify (para contratos verificados e auditorias)
 
-#### **Para indústrias que dependem de contratos inteligentes**  
-Setores como finanças descentralizadas (DeFi), rastreabilidade, logística, identidade digital e governança distribuída necessitam de maior previsibilidade, escalabilidade e segurança. Evidências sobre complexidade e manutenibilidade podem influenciar:
+*Natureza dos projetos:*
+- Projetos mantidos por **comunidades distribuídas globalmente**
+- Times variando de pequenos (1-5 desenvolvedores) a grandes (50+ contribuidores)
+- Processos de desenvolvimento tipicamente incluem: code review via pull requests, CI/CD, testes automatizados, documentação técnica
 
-- custos de desenvolvimento;  
-- esforço de manutenção;  
-- riscos operacionais;  
-- viabilidade de novos produtos baseados em blockchain.
+**Domínios de aplicação cobertos:**
 
----
+*Grupo Blockchain (G1):*
+- **DeFi (Decentralized Finance):** protocolos de empréstimo, exchanges descentralizadas (DEX), yield farming
+  - Exemplos: Uniswap, Aave, Compound
+- **NFT/Gaming:** contratos de tokens não-fungíveis, marketplaces, jogos on-chain
+  - Exemplos: OpenSea contracts, Axie Infinity
+- **Governança/DAO:** sistemas de votação descentralizada, tesouraria, propostas
+  - Exemplos: MakerDAO, Aragon
+- **Infraestrutura:** bridges, oracles, utilitários de contratos
+  - Exemplos: Chainlink, LayerZero
 
-### 2.3 Contexto Tecnológico e de Engenharia  
-O experimento é conduzido com base em **projetos open-source** disponibilizados em plataformas como GitHub e GitLab, incluindo:
+*Grupo Tradicional (G2):*
+- **APIs/Backend:** serviços REST/GraphQL, processamento de transações, autenticação
+- **Bibliotecas:** frameworks de validação, utilitários, SDKs
+- **Microserviços:** componentes de arquiteturas distribuídas tradicionais
+- **Ferramentas CLI:** interfaces de linha de comando, scripts de automação
 
-- smart contracts escritos em **Solidity** ou **Vyper**;  
-- aplicações tradicionais em linguagens amplamente usadas (como TypeScript, Java, Python, Go).
+**Tecnologias e linguagens:**
 
-Esses repositórios oferecem dados relevantes, como:
+*Blockchain (G1):*
+- **Linguagens:** Solidity (≥ v0.6.0), Vyper
+- **Plataforma de execução:** Ethereum Virtual Machine (EVM)
+- **Frameworks de desenvolvimento:** Hardhat, Foundry, Truffle
+- **Bibliotecas padrão:** OpenZeppelin Contracts
+- **Ferramentas de análise:** Slither (análise estática), Mythril (segurança), Hardhat (testes)
 
-- histórico completo de commits;  
-- racional de decisões arquiteturais em issues e pull requests;  
-- auditorias, testes, padrões de design e práticas adotadas;  
-- presença de ferramentas de análise estática e CI/CD.
+*Tradicional (G2):*
+- **Linguagens:** TypeScript, Java, Python, Go
+- **Frameworks:** Express.js/NestJS (TypeScript), Spring Boot (Java), FastAPI (Python), Gin (Go)
+- **Ferramentas de qualidade:** ESLint, SonarQube, Checkstyle, pylint
+- **Testes:** Jest, JUnit, pytest, testing/go
 
-Esse ambiente funciona como um **laboratório natural** para observar como diferentes paradigmas influenciam características objetivas de software, permitindo comparações quantitativas e qualitativas entre:
+**Processo de desenvolvimento observado:**
 
-- sistemas descentralizados;  
-- sistemas tradicionais monolíticos ou distribuídos;  
-- diferentes estilos de modularidade;  
-- diferentes impactos de restrições ambientais.
+Projetos OSS tipicamente seguem:
+1. **Planejamento:** issues descrevendo features/bugs
+2. **Implementação:** branches de desenvolvimento, commits incrementais
+3. **Revisão:** pull requests com code review por pares
+4. **Qualidade:** CI rodando testes e análise estática
+5. **Deploy:** releases marcadas com tags/versões
+6. **Manutenção:** patches de segurança, refatorações
 
----
+Para projetos blockchain, adicionalmente:
+- **Auditorias:** revisão formal por empresas especializadas (Trail of Bits, OpenZeppelin, Consensys Diligence)
+- **Verificação on-chain:** código publicado e verificado em block explorers
+- **Bug bounties:** programas de recompensa por vulnerabilidades
 
-### 2.4 Trabalhos e Evidências Prévias  
-Embora existam numerosos estudos sobre segurança em blockchain, a área de **métricas de qualidade aplicada a smart contracts** ainda é emergente. Alguns referenciais incluem:
+**Ferramentas de análise utilizadas no experimento:**
 
-- **Chen et al.** — análise de vulnerabilidades e padrões de desenvolvimento em smart contracts.  
-- **Luu et al. (Oyente)** — identificação de padrões de execução e armadilhas relacionadas a complexidade.  
-- **Kalra et al. (ZEUS)** — verificação formal e propriedades estruturais de contratos.  
-- Estudos clássicos sobre métricas tradicionais:  
-  - Chidamber & Kemerer (CK Metrics, 1994);  
-  - Basili et al., complexidade e manutenibilidade;  
-  - Pressman, Sommerville e a literatura base de Engenharia de Software.
-
-Apesar desses trabalhos, **faltam estudos comparativos diretos entre sistemas blockchain e sistemas tradicionais utilizando as mesmas métricas de qualidade**, o que reforça a importância deste experimento.
-
----
-
-### 2.5 Referencial Teórico e Empírico Essencial  
-O experimento se fundamenta em uma combinação de literatura clássica e nova teoria emergente:
-
-#### **Métricas de Engenharia de Software**
-Baseia-se em modelos consagrados para medir complexidade, tamanho e manutenibilidade, como:
-
-- Complexidade ciclomática (McCabe)
-- Maintainability Index  
-- LOC (Lines of Code)  
-- Profundidade de aninhamento  
-- Coesão e acoplamento (CK Metrics)
-
-#### **Princípios de Design de Software**
-Aplicados para contextualizar o impacto das restrições de blockchain:
-
-- modularidade e encapsulamento;  
-- minimização da complexidade;  
-- princípio KISS (Keep It Simple, Stupid), amplamente adotado em smart contracts;  
-- limitação de abstrações complexas devido ao custo de gas;  
-- importância da previsibilidade e determinismo.
-
-#### **Particularidades de Smart Contracts**
-Incluem:
-
-- execução em ambiente EVM;  
-- custo por instrução computacional;  
-- imutabilidade do código após o deploy;  
-- padrões como “proxy pattern” para contornar limitações de atualização;  
-- necessidade de minimizar superfícies de ataque e pontos de falha.
-
-Esses elementos funcionam como lentes analíticas para interpretar resultados do experimento, permitindo discutir não apenas *o que* as métricas indicam, mas *por que* elas se comportam de forma distinta entre os dois paradigmas.
+| Ferramenta | Versão | Propósito | Linguagens suportadas |
+|------------|--------|-----------|----------------------|
+| **Slither** | 0.10.0 | Análise de smart contracts | Solidity, Vyper |
+| **Lizard** | 1.17.10 | Complexidade ciclomática | Multi-linguagem |
+| **Radon** | 5.1.0 | Manutenibilidade Python | Python |
+| **SonarQube** | 5.0 | Qualidade geral | TypeScript, Java, Python |
+| **PMD CPD** | 6.55.0 | Detecção de duplicação | Multi-linguagem |
+| **PyDriller** | 2.5 | Mineração de repositórios | N/A (Git) |
+| **cloc** | 1.98 | Contagem de linhas | Multi-linguagem |
 
 ---
+
+### 2.3 Trabalhos e evidências prévias (internos e externos)
+
+
+**Trabalhos externos relevantes:**
+
+A revisão da literatura externa identifica três categorias principais:
+
+#### **A) Análise de segurança e vulnerabilidades em smart contracts**
+
+Estes trabalhos estabelecem o contexto de ameaças, mas não focam em métricas de qualidade estrutural:
+
+1. **Luu et al. (2016) - "Making Smart Contracts Smarter" (Oyente)**
+   - Primeira ferramenta de análise simbólica para contratos Ethereum
+   - Identificou vulnerabilidades em ~8.8k contratos
+   - **Relevância:** Sugere que complexidade de controle de fluxo dificulta verificação
+   - **Limitação:** Não compara com software tradicional
+
+2. **Kalra et al. (2018) - "ZEUS: Analyzing Safety of Smart Contracts"**
+   - Verificação formal de propriedades de segurança e corretude
+   - Discute trade-offs entre expressividade e verificabilidade
+   - **Relevância:** Indica que contratos complexos são difíceis de verificar formalmente
+   - **Limitação:** Foco em corretude, não em métricas de manutenibilidade
+
+3. **Atzei et al. (2017) - "A Survey of Attacks on Ethereum Smart Contracts"**
+   - Taxonomia de 12 classes de vulnerabilidades
+   - **Relevância:** Muitas vulnerabilidades relacionadas a complexidade (reentrancy, race conditions)
+   - **Limitação:** Análise qualitativa, sem métricas quantitativas
+
+4. **Chen et al. (2017) - "Under-optimized Smart Contracts Devour Your Money"**
+   - Análise de padrões de desenvolvimento que aumentam custos de gas
+   - Encontrou ~7k contratos com anti-patterns de otimização
+   - **Relevância:** Evidência de que pressão por gas afeta design
+   - **Limitação:** Foco em otimização, não em qualidade geral
+
+#### **B) Métricas de qualidade tradicionais (fundamentação teórica)**
+
+Trabalhos clássicos que definem as métricas utilizadas neste experimento:
+
+5. **McCabe (1976) - "A Complexity Measure"**
+   - Definição da complexidade ciclomática (CC)
+   - CC como preditor de defeitos e esforço de teste
+   - **Aplicação:** Base teórica para medir complexidade em ambos os grupos
+
+6. **Chidamber & Kemerer (1994) - "A Metrics Suite for Object Oriented Design"**
+   - Métricas CK: WMC, DIT, NOC, CBO, RFC, LCOM
+   - Validação empírica: WMC correlaciona com defeitos
+   - **Aplicação:** WMC adaptado para contratos (métodos por contrato)
+
+7. **Oman & Hagemeister (1992) - "Constructing and Testing of Polynomials Predicting Software Maintainability"**
+   - Definição do Maintainability Index (MI)
+   - Fórmula: MI = 171 - 5.2×ln(HV) - 0.23×CC - 16.2×ln(LOC)
+   - **Aplicação:** Métrica principal de manutenibilidade no experimento
+
+8. **Basili et al. (1996) - "Goal Question Metric Approach"**
+   - Framework GQM para planejamento de estudos empíricos
+   - **Aplicação:** Estrutura metodológica deste experimento (seção 3)
+
+#### **C) Estudos empíricos sobre blockchain (poucos e limitados)**
+
+Trabalhos emergentes que tentam aplicar métricas a blockchain, mas com limitações:
+
+9. **Marchesi et al. (2020) - "Design Patterns for Gas Optimization in Ethereum"**
+   - Análise exploratória de complexidade em ~1k contratos Solidity
+   - Encontrou CC médio de 4.7, máximo de 87
+   - **Relevância:** Primeiro estudo de CC em blockchain
+   - **Limitação:** Sem grupo de controle tradicional, sem análise estatística formal
+
+10. **Oliva et al. (2020) - "An Exploratory Study of Smart Contracts in the Ethereum Blockchain Platform"**
+    - Análise de evolução de contratos ao longo do tempo
+    - Observou menor frequência de mudanças comparado a projetos OSS tradicionais
+    - **Relevância:** Evidência de que imutabilidade afeta evolução
+    - **Limitação:** Não mediu métricas estruturais (CC, MI)
+
+11. **Pinna et al. (2019) - "A Massive Analysis of Ethereum Smart Contracts: Empirical Study and Code Metrics"**
+    - Proposta de adaptação de métricas OO para Solidity
+    - Análise de ~46k contratos com métricas básicas (LOC, número de funções)
+    - **Relevância:** Demonstra viabilidade de aplicar métricas clássicas
+    - **Limitação:** Trabalho conceitual, sem comparação com software tradicional
+
+12. **Destefanis et al. (2018) - "Smart Contracts Vulnerabilities: A Call for Blockchain Software Engineering?"**
+    - Survey sobre necessidade de práticas de ESE em blockchain
+    - **Relevância:** Identifica falta de estudos empíricos sobre qualidade
+    - **Limitação:** Trabalho conceitual, sem dados empíricos
+
+#### **Lacuna identificada:**
+
+**Nenhum dos trabalhos acima realiza:**
+
+✗ Comparação sistemática entre blockchain e software tradicional  
+✗ Uso do mesmo conjunto de métricas em ambos os grupos  
+✗ Controle de variáveis de confusão (tamanho, maturidade, domínio)  
+✗ Testes estatísticos formais para hipóteses  
+✗ Análise de múltiplas dimensões (complexidade + manutenibilidade + evolução)
+
+**Este experimento preenche essa lacuna** ao ser o primeiro a:
+
+✓ Comparar blockchain vs tradicional de forma controlada  
+✓ Aplicar métricas clássicas (CC, MI, WMC, LOC, duplicação) em ambos  
+✓ Usar amostragem estratificada para balanceamento  
+✓ Testar hipóteses formais com análise estatística rigorosa  
+✓ Combinar análise quantitativa com estudos de caso qualitativos
+
+---
+### 2.4 Referencial teórico e empírico essencial
+
+Este experimento fundamenta-se em conceitos consolidados da engenharia de software experimental e métricas de qualidade de código estabelecidas na literatura.
+
+---
+
+#### **2.4.1 Métricas de Complexidade**
+
+**Complexidade Ciclomática:** Métrica que quantifica o número de caminhos linearmente independentes através do código-fonte, utilizada como preditor de dificuldade de teste e manutenção (McCabe, 1976).
+
+**Weighted Methods per Class (WMC):** Soma das complexidades de todos os métodos em uma classe, indicador de concentração de lógica e violação de coesão (Chidamber & Kemerer, 1994).
+
+**Profundidade de Aninhamento:** Nível máximo de estruturas de controle aninhadas, correlacionado com dificuldade de compreensão (Shepperd, 1988).
+
+---
+
+#### **2.4.2 Métricas de Manutenibilidade**
+
+**Maintainability Index (MI):** Métrica composta (0-100) que combina complexidade ciclomática, volume de Halstead e linhas de código para estimar facilidade de manutenção (Oman & Hagemeister, 1992).
+
+**Débito Técnico:** Custo implícito de refatoração futura decorrente de escolhas de design subótimas, medido como proporção do esforço de desenvolvimento (Cunningham, 1992; Kruchten et al., 2012).
+
+**Code Smells:** Indicadores estruturais de possíveis problemas de design que aumentam esforço de manutenção (Fowler, 1999).
+
+---
+
+#### **2.4.3 Métricas de Tamanho e Estrutura**
+
+**Linhas de Código (LOC):** Métrica fundamental de tamanho de software, correlacionada com esforço de desenvolvimento e manutenção (Boehm, 1981).
+
+**Duplicação de Código:** Proporção de código repetido, indicador de violação do princípio DRY (Don't Repeat Yourself) e dificuldade de manutenção (Kapser & Godfrey, 2008).
+
+**Métricas de Modularização:** Número de módulos, acoplamento e coesão, fundamentais para avaliar qualidade arquitetural (Parnas, 1972; Stevens et al., 1974).
+
+---
+
+#### **2.4.4 Métricas de Evolução**
+
+**Hotspots de Manutenção:** Arquivos ou módulos com alta frequência de modificação, indicadores de instabilidade ou má qualidade (Nagappan & Ball, 2005).
+
+**Frequência de Commits:** Taxa de mudanças ao longo do tempo, utilizada para analisar padrões de evolução de software (D'Ambros et al., 2010).
+
+**Change Sets:** Conjunto de arquivos modificados em um commit, utilizado para medir impacto e acoplamento lógico (Zimmermann et al., 2004).
+
+---
+
+#### **2.4.5 Framework Metodológico**
+
+**Goal Question Metric (GQM):** Abordagem estruturada para definir objetivos de medição, questões de pesquisa e métricas associadas em estudos empíricos (Basili et al., 1994).
+
+**Desenho Experimental em Engenharia de Software:** Princípios de controle, randomização, replicação e validade para estudos observacionais e experimentais (Wohlin et al., 2012).
+
+---
+
+#### **2.4.6 Contexto Blockchain**
+
+**Métricas em Smart Contracts:** Estudos emergentes aplicando métricas tradicionais a contratos Solidity, demonstrando viabilidade técnica mas com limitações metodológicas (Marchesi et al., 2020; Pinna et al., 2019).
+
+**Análise de Segurança:** Trabalhos focados em vulnerabilidades e verificação formal, estabelecendo contexto de ameaças mas sem comparação estrutural com software tradicional (Atzei et al., 2017; Luu et al., 2016).
+
+**Otimização de Gas:** Pesquisas sobre padrões de desenvolvimento que reduzem custos de execução, evidenciando pressão sobre design de smart contracts (Chen et al., 2017).
+
+---
+
+#### **2.4.7 Lacuna Identificada**
+
+Apesar da consolidação das métricas de qualidade em contextos tradicionais e dos trabalhos emergentes sobre blockchain, **não existe na literatura atual uma comparação sistemática e controlada** entre as duas abordagens utilizando as mesmas métricas, mesma metodologia de coleta e análise estatística formal de hipóteses. Este experimento preenche essa lacuna ao aplicar rigor científico na comparação empírica entre paradigmas.
+---
+
 # 3. Objetivos e Questões (Goal / Question / Metric – GQM)
 
 ## 3.1 Objetivo geral (formulado no template GQM)
@@ -365,77 +494,24 @@ O experimento deve ser interrompido antes da execução caso:
 - Mudanças no escopo tornem necessário redesenhar todo o estudo.
 
 ---
-# 7. Modelo Conceitual e Hipóteses
+### 7. Modelo Conceitual e Hipóteses
 
-## 7.1 Modelo conceitual do experimento
+#### 7.1 Modelo conceitual do experimento
+O modelo conceitual assume que o **tipo de projeto** (Blockchain vs Tradicional) afeta diretamente a **estrutura** e **qualidade interna** do código.
 
-O modelo conceitual deste experimento parte do princípio de que **o paradigma de desenvolvimento (blockchain vs tradicional) influencia diretamente as características estruturais e de qualidade do código**. 
+**Mecanismos causais esperados**
 
-### Premissas do Modelo
+- **Restrição de Gas → Complexidade Local Maior**  
+  Código blockchain tende a ser mais denso para economizar operações, elevando a complexidade ciclomática.
 
-**Variável independente principal:** Tipo de projeto (Blockchain / Tradicional)
+- **Imutabilidade → Lógica Defensiva**  
+  Como não é possível corrigir smart contracts após o deploy, há mais validações e condicionais.
 
-**Mecanismos causais esperados:**
+- **Custo de Atualização → Duplicação de Código**  
+  Chamadas entre contratos são caras, o que incentiva duplicação controlada de lógica.
 
-1. **Restrições de Gas → Maior Complexidade Local**
-   - Desenvolvedores de smart contracts otimizam para reduzir custo de execução
-   - Isso pode levar a código mais denso e complexo para economizar operações
-   - Resultado: maior complexidade ciclomática por função
-
-2. **Imutabilidade → Lógica Defensiva Aumentada**
-   - Impossibilidade de corrigir bugs após deploy incentiva validações exaustivas
-   - Multiplicação de checks (require/assert) em cada função
-   - Resultado: maior número de branches e condicionais
-
-3. **Custo de Atualização → Duplicação Controlada**
-   - Criar abstrações/bibliotecas tem custo de chamadas entre contratos
-   - Desenvolvedores podem preferir duplicar código localmente
-   - Resultado: maior % de LOC duplicada em projetos blockchain
-
-4. **Ambiente Restrito → Menor Modularização**
-   - Limitações de armazenamento e chamadas externas
-   - Tendência a concentrar lógica em poucos contratos
-   - Resultado: módulos maiores e menos divididos
-
-### Representação Visual do Modelo
-```
-┌─────────────────────────────────────┐
-│   PARADIGMA DE DESENVOLVIMENTO      │
-│   (Blockchain vs Tradicional)       │
-└──────────────┬──────────────────────┘
-               │
-       ├───────┴───────┐
-       ▼               ▼
-┌──────────────────┐  ┌──────────────────┐
-│   RESTRIÇÕES     │  │   INCENTIVOS     │
-│   TÉCNICAS       │  │   ECONÔMICOS     │
-├──────────────────┤  ├──────────────────┤
-│ • Imutabilidade  │  │ • Custo de Gas   │
-│ • EVM Limitada   │  │ • Custo Deploy   │
-│ • Sem Rollback   │  │ • Custo Update   │
-└────────┬─────────┘  └────────┬─────────┘
-         │                     │
-         └──────────┬──────────┘
-                    ▼
-         ┌───────────────────────┐
-         │ DECISÕES DE DESIGN    │
-         ├───────────────────────┤
-         │ • Validações          │
-         │ • Modularização       │
-         │ • Duplicação/Abstração│
-         │ • Otimizações         │
-         └───────────┬───────────┘
-                     ▼
-         ┌───────────────────────┐
-         │ MÉTRICAS DE QUALIDADE │
-         ├───────────────────────┤
-         │ • Complexidade (CC)   │
-         │ • Manutenibilidade(MI)│
-         │ • LOC, WMC            │
-         │ • Duplicação          │
-         │ • Hotspots            │
-         └───────────────────────┘
-```
+- **Ambiente Restrito → Menor Modularização**  
+  Limitações de armazenamento e interação externa levam a menos divisão em módulos e contratos maiores.
 
 ---
 
@@ -548,102 +624,69 @@ Serão usados testes bicaudais por serem mais conservadores, mesmo quando as hip
 4. **Análises robustas:** usar testes não-paramétricos quando distribuições forem assimétricas
 
 Com uma amostra de 10-15 projetos por grupo e centenas de observações em nível de função, espera-se poder suficiente para detectar efeitos moderados (d ≥ 0.5) nas principais comparações.
----
-# 8. Variáveis, fatores, tratamentos e objetos de estudo
+## 8. Variáveis, fatores, tratamentos e objetos de estudo
 
-## 8.1 Objetos de estudo
+### 8.1 Objetos de estudo
 
-Os objetos de estudo são artefatos de software que serão analisados empiricamente:
-
-- **Projetos completos:** repositórios OSS em GitHub/GitLab com histórico de desenvolvimento
-- **Smart contracts:** contratos Solidity/Vyper implantados ou em desenvolvimento ativo
-- **Módulos/arquivos de produção:** classes, serviços, bibliotecas, adaptadores em sistemas tradicionais
-- **Funções/métodos individuais:** unidades mínimas de análise de complexidade
-- **Snapshots históricos:** versões específicas (releases, tags) selecionadas para análise temporal
+Artefatos de software analisados empiricamente:
+- **Projetos completos:** repositórios OSS (GitHub/GitLab) com histórico de desenvolvimento
+- **Smart contracts:** contratos Solidity/Vyper em produção ou desenvolvimento ativo
+- **Módulos/arquivos:** classes, serviços, bibliotecas em sistemas tradicionais
+- **Funções/métodos:** unidades mínimas de análise de complexidade
+- **Snapshots históricos:** releases/tags específicas para análise temporal
 
 ---
 
-## 8.2 Sujeitos / participantes
+### 8.2 Sujeitos / participantes
 
-### **Participantes diretos:**
-- **Pesquisador principal (Gabriel Pongelupe):** responsável por seleção, coleta, execução de ferramentas e análise
+**Participantes diretos:**
+- **Pesquisador (Gabriel Pongelupe):** seleção, coleta, execução de ferramentas e análise
 
-### **Participantes indiretos:**
-- **Desenvolvedores e mantenedores OSS:** suas decisões de design e implementação são o objeto de estudo observacional
-- **Comunidades de projetos:** contexto organizacional e técnico que influencia as práticas observadas
+**Participantes indiretos (desenvolvedores OSS):**
+- **Perfil:** experiência variada (júnior a sênior); contexto voluntário (OSS) ou profissional; distribuídos globalmente
+- **Quantidade estimada:** ~50-200 desenvolvedores únicos nos 24 projetos (1-5 em projetos pequenos; 50+ em grandes)
+- **Papel:** suas decisões de design/implementação são o objeto observacional
+- **Contexto:** comunidades distribuídas que influenciam práticas técnicas
 
-**Nota:** Não há intervenção direta nas equipes ou nos projetos; trata-se de um estudo puramente observacional baseado em artefatos públicos.
+**Nota:** Estudo puramente observacional sem intervenção direta em equipes ou projetos.
 
 ---
 
-## 8.3 Variáveis independentes (fatores) e níveis
+### 8.3 Variáveis independentes (fatores) e níveis
 
-### **Fator principal:**
+**Fator principal:**
 
 **F1 – Tipo de Projeto (ProjectType)**
-- **Níveis:**
-  - **Blockchain (BC):** projetos com smart contracts (Solidity/Vyper)
-  - **Tradicional (TRAD):** projetos backend/API (TypeScript, Java, Python)
+- Blockchain (BC): smart contracts (Solidity/Vyper)
+- Tradicional (TRAD): backend/API (TypeScript, Java, Python)
 
-### **Fatores de controle / bloqueio:**
+**Fatores de controle/bloqueio:**
 
-**F2 – Tamanho do Projeto (ProjectSize)**
-- **Níveis:**
-  - Pequeno: < 5.000 LOC
-  - Médio: 5.000 - 20.000 LOC
-  - Grande: > 20.000 LOC
+**F2 – Tamanho (ProjectSize):** Pequeno (< 5k LOC) | Médio (5k-20k) | Grande (> 20k)
 
-**F3 – Maturidade do Projeto (ProjectMaturity)**
-- **Níveis:**
-  - Baixa: < 1 ano de atividade, < 50 commits
-  - Média: 1-3 anos, 50-500 commits
-  - Alta: > 3 anos, > 500 commits
+**F3 – Maturidade (ProjectMaturity):** Baixa (< 1 ano, < 50 commits) | Média (1-3 anos, 50-500) | Alta (> 3 anos, > 500)
 
-**F4 – Domínio de Aplicação (Domain)**
-- **Níveis (Blockchain):**
-  - DeFi (finanças descentralizadas)
-  - NFT/Gaming
-  - Governança/DAO
-  - Infraestrutura/Utilidades
-  
-- **Níveis (Tradicional):**
-  - API/Backend
-  - Biblioteca/Framework
-  - Microserviço
-  - Ferramenta/CLI
+**F4 – Domínio (Domain)**
+- BC: DeFi, NFT/Gaming, Governança/DAO, Infraestrutura
+- TRAD: API/Backend, Biblioteca/Framework, Microserviço, CLI
 
-**F5 – Linguagem (Language)**
-- **Níveis:**
-  - Solidity
-  - Vyper
-  - TypeScript
-  - Java
-  - Python
+**F5 – Linguagem (Language):** Solidity, Vyper, TypeScript, Java, Python
 
 ---
 
-## 8.4 Tratamentos (condições experimentais)
+### 8.4 Tratamentos (condições experimentais)
 
-Como o estudo é **observacional**, não há "tratamentos" experimentais clássicos aplicados pelo pesquisador. Em vez disso, os "tratamentos" são **condições naturais observadas** nos projetos:
+Estudo **observacional**: "tratamentos" são **condições naturais** observadas nos projetos.
 
-### **Condições principais (grupos de comparação):**
+**Grupos principais:**
 
-**G1 – Grupo Blockchain (BC)**
-- Projetos com smart contracts
-- Sujeitos às restrições de gas, imutabilidade, EVM
-- n = 10-15 projetos
+**G1 – Blockchain (n=10-15):** Smart contracts sujeitos a restrições de gas, imutabilidade, EVM e riscos financeiros
 
-**G2 – Grupo Tradicional (TRAD)**
-- Projetos backend/API convencionais
-- Sem restrições blockchain
-- n = 10-15 projetos
+**G2 – Tradicional (n=10-15):** Backend/API sem restrições blockchain; flexibilidade de atualização e ambiente menos restrito
 
-### **Subgrupos de interesse (análises secundárias):**
+**Diferença fundamental:** G1 enfrenta custos explícitos de execução, imutabilidade pós-deploy e ambiente EVM restrito; G2 possui flexibilidade de atualização e ausência de custos de gas.
 
-- **BC-DeFi vs BC-NFT:** comparar dentro do grupo blockchain
-- **TRAD-API vs TRAD-Library:** comparar dentro do grupo tradicional
-- **High-Gas-Sensitive vs Low-Gas-Sensitive:** contratos com/sem otimizações extremas
-- **Audited vs Non-Audited:** contratos com/sem auditoria formal de segurança
+**Subgrupos (análises secundárias):** BC-DeFi vs BC-NFT; TRAD-API vs TRAD-Library; Audited vs Non-Audited; High-Gas-Sensitive vs Low-Gas-Sensitive
 
 ---
 
@@ -704,269 +747,142 @@ As variáveis dependentes são as métricas de qualidade e estrutura que serão 
 
 ---
 
-## 8.6 Variáveis de controle / bloqueio
+### 8.6 Variáveis de controle / bloqueio
 
-Estas variáveis serão usadas para **estratificar** a amostra ou como **covariáveis** nas análises estatísticas, reduzindo viés e confusão:
+Estratégias para reduzir viés e confusão:
 
-| Variável | Estratégia de Controle |
-|----------|------------------------|
-| **Tamanho do projeto (LOC)** | Normalização por LOC; estratificação em faixas; inclusão como covariável |
-| **Maturidade (idade, commits)** | Seleção de projetos em faixas similares; controle estatístico |
-| **Linguagem** | Pareamento (Solidity ↔ TypeScript); análise separada quando necessário |
-| **Domínio** | Balanceamento entre DeFi/NFT (BC) e API/Library (TRAD) |
-| **Presença de testes** | Exclusão de arquivos de teste; potencial covariável |
-| **Ferramentas de CI/CD** | Registro e controle estatístico |
-| **Popularidade (stars, forks)** | Estratificação; análise de sensibilidade |
-
----
-
-## 8.7 Possíveis variáveis de confusão
-
-Fatores que podem influenciar os resultados mas não estão sob controle direto:
-
-### **Confusores relacionados à equipe:**
-- **Experiência dos desenvolvedores:** equipes mais experientes podem escrever código mais limpo independente do paradigma
-- **Cultura de qualidade:** projetos com forte cultura de revisão podem ter métricas melhores
-- **Tamanho da equipe:** projetos com mais contribuidores podem ter padrões diferentes
-
-### **Confusores relacionados ao contexto:**
-- **Pressão por time-to-market:** projetos com prazos apertados podem ter maior débito técnico
-- **Presença de auditorias:** projetos blockchain auditados podem ser mais cuidadosamente escritos
-- **Frameworks utilizados:** uso de bibliotecas como OpenZeppelin pode reduzir complexidade
-
-### **Confusores metodológicos:**
-- **Versão das ferramentas:** diferentes versões de Slither/Lizard podem calcular métricas diferentemente
-- **Configuração de detecção:** thresholds de code smells e duplicação podem variar
-- **Seleção de snapshots:** escolha de releases pode capturar momentos não representativos
-
-### **Estratégias de mitigação:**
-
-1. **Coleta de metadados:** registrar informações sobre equipe, auditorias, frameworks
-2. **Análise estratificada:** separar projetos por níveis dos confusores conhecidos
-3. **Análise de sensibilidade:** testar se resultados se mantêm após exclusão de casos extremos
-4. **Documentação:** registrar todos os confusores identificados e suas possíveis influências
-5. **Triangulação:** combinar análise quantitativa com revisão qualitativa de casos extremos
+| Variável | Estratégia |
+|----------|-----------|
+| Tamanho (LOC) | Normalização; estratificação; covariável |
+| Maturidade | Faixas similares; controle estatístico |
+| Linguagem | Pareamento (Solidity ↔ TypeScript); análise separada |
+| Domínio | Balanceamento DeFi/NFT ↔ API/Library |
+| Testes | Exclusão de arquivos; covariável |
+| CI/CD | Registro; controle estatístico |
+| Popularidade | Estratificação; análise de sensibilidade |
+| Auditorias (BC) | Registro; análise auditados vs não-auditados |
 
 ---
 
-# 9. Desenho experimental
+### 8.7 Possíveis variáveis de confusão
 
-## 9.1 Tipo de desenho
+**Confusores de equipe:** Experiência desenvolvedores, cultura de qualidade, tamanho da equipe
 
-O estudo adota um **desenho observacional, comparativo, transversal com componente longitudinal**, caracterizado por:
+**Confusores de contexto:** Pressão por prazos, auditorias (BC), frameworks (ex: OpenZeppelin)
 
-### **Características principais:**
+**Confusores metodológicos:** Versões de ferramentas, thresholds de detecção, seleção de snapshots
+
+**Estratégias de mitigação:**
+1. Coleta de metadados (equipe, auditorias, frameworks)
+2. Análise estratificada por confusores conhecidos
+3. Análise de sensibilidade (exclusão de extremos)
+4. Documentação completa de confusores identificados
+5. Triangulação (quantitativo + qualitativo)
+
+---
+
+## 9. Desenho experimental
+
+### 9.1 Tipo de desenho
+
+**Desenho observacional comparativo, transversal com análise longitudinal**
+
+**Por que esse desenho?** Não manipulamos projetos (observacional); comparamos dois grupos naturais (BC vs TRAD); coletamos dados em pontos fixos (transversal) mas também analisamos evolução temporal (longitudinal).
+
+**Características:**
 
 **Observacional:**
-- Não há manipulação experimental ou intervenção nos projetos
-- Os "tratamentos" são condições naturais observadas (blockchain vs tradicional)
-- Dados coletados de artefatos públicos sem alteração do ambiente
+- Sem intervenção nos projetos
+- Tratamentos = condições naturais (BC vs TRAD)
+- Dados de artefatos públicos
 
-**Comparativo entre grupos:**
-- Dois grupos principais: G1 (Blockchain) e G2 (Tradicional)
-- Comparação sistemática de métricas de qualidade entre os grupos
-- Possibilidade de subgrupos para análises secundárias
+**Comparativo:**
+- G1 (Blockchain) vs G2 (Tradicional)
+- Métricas idênticas em ambos os grupos
 
-**Transversal (snapshot):**
-- Análise principal foca em versões estáveis (releases/tags) dos projetos
-- Medições em um ponto específico no tempo para cada projeto
+**Transversal:**
+- Análise principal em releases estáveis (snapshot fixo)
 
 **Componente longitudinal:**
-- Análise do histórico de commits para responder questões sobre evolução (O4)
-- Múltiplos snapshots ao longo do tempo quando relevante
-
-### **Estrutura do desenho:**
-```
-Desenho Comparativo 2 Grupos com Bloqueio
-
-Fator Principal: Tipo (Blockchain vs Tradicional)
-Blocos: Tamanho (Pequeno/Médio/Grande) × Maturidade (Baixa/Alta)
-
-┌─────────────────────────────────────────────────────┐
-│                   BLOCKCHAIN (G1)                   │
-├──────────────────┬──────────────────┬───────────────┤
-│  Pequeno/Baixa   │  Pequeno/Alta    │  Médio/Baixa  │
-│  n = 2           │  n = 2           │  n = 2        │
-├──────────────────┼──────────────────┼───────────────┤
-│  Médio/Alta      │  Grande/Baixa    │  Grande/Alta  │
-│  n = 2           │  n = 2           │  n = 2        │
-└──────────────────┴──────────────────┴───────────────┘
-
-┌─────────────────────────────────────────────────────┐
-│                  TRADICIONAL (G2)                   │
-├──────────────────┬──────────────────┬───────────────┤
-│  Pequeno/Baixa   │  Pequeno/Alta    │  Médio/Baixa  │
-│  n = 2           │  n = 2           │  n = 2        │
-├──────────────────┼──────────────────┼───────────────┤
-│  Médio/Alta      │  Grande/Baixa    │  Grande/Alta  │
-│  n = 2           │  n = 2           │  n = 2        │
-└──────────────────┴──────────────────┴───────────────┘
-```
-
-Este desenho permite:
-- Comparação principal: G1 vs G2
-- Controle por tamanho e maturidade (blocos)
-- Análises secundárias dentro de cada grupo
+- Histórico de commits para evolução (O4)
+- Múltiplos snapshots quando relevante
 
 ---
 
-## 9.2 Randomização e alocação
+### 9.2 Randomização e alocação
 
-Embora não haja randomização de "tratamento" (pois o tipo de projeto é uma característica intrínseca), a randomização é aplicada na **seleção de projetos** e na **ordem de processamento**:
+**Alocação:** Projetos pertencem naturalmente a G1 (têm smart contracts) ou G2 (não têm). Não há alocação experimental.
 
-### **Seleção randomizada de projetos:**
+**Randomização aplicada em:**
 
-**Passo 1 – Construir conjunto elegível:**
-- Aplicar critérios de inclusão/exclusão (seção 10.2 e 10.3)
-- Formar lista de projetos candidatos por categoria
+**1. Seleção de projetos (amostragem estratificada):**
 
-**Passo 2 – Estratificação:**
-- Classificar projetos por:
-  - Tamanho (LOC: pequeno/médio/grande)
-  - Maturidade (idade, commits: baixa/alta)
-  - Domínio (DeFi, API, etc.)
+- **Passo 1:** Aplicar critérios (seção 10.2-10.3) → lista de candidatos
+- **Passo 2:** Estratificar por tamanho, maturidade, domínio
+- **Passo 3:** Selecionar aleatoriamente dentro de cada estrato (seed=42)
+- **Resultado:** 12 projetos BC + 12 TRAD balanceados
 
-**Passo 3 – Amostragem aleatória estratificada:**
-- Dentro de cada estrato, usar gerador de números aleatórios (seed fixo para reprodutibilidade)
-- Selecionar n projetos por estrato respeitando balanceamento desejado
-- Documentar seed e ordem de seleção
+**2. Ordem de processamento:**
 
-### **Randomização na execução:**
+- Embaralhar projetos antes da coleta (seed=42)
+- Reduz viés de aprendizado/fadiga do pesquisador
+- Exemplo: BC1 → TRAD3 → BC5 → TRAD2 → ...
 
-**Ordem de processamento:**
-- Embaralhar ordem de análise dos projetos dentro de cada grupo
-- Reduz viés do pesquisador (ex.: aprendizado, fadiga)
-- Seed fixo para reprodutibilidade
+**3. Amostras internas:**
 
-**Seleção de amostras internas:**
-- Quando um projeto tem centenas de funções, amostrar aleatoriamente subconjunto para análise qualitativa
-- Garante representatividade sem viés de cherry-picking
+- Projetos com 500+ funções: amostrar aleatoriamente para análise qualitativa
+- Evita cherry-picking
 
-### **Documentação da randomização:**
-```python
-# Exemplo de código para reprodutibilidade
-import random
-random.seed(42)  # seed fixo
-
-eligible_projects = [...]  # lista de candidatos
-stratified_sample = stratified_random_sample(
-    eligible_projects, 
-    strata=['size', 'maturity'],
-    n_per_stratum=2
-)
-```
-
-Toda randomização será documentada no repositório do experimento com código-fonte e logs.
+**Reprodutibilidade:** Seed fixo (42) + código versionado no repositório
 
 ---
 
-## 9.3 Balanceamento e contrabalanço
+### 9.3 Balanceamento e contrabalanço
 
-### **Balanceamento entre grupos:**
-
-**Objetivo:** Garantir que G1 (Blockchain) e G2 (Tradicional) sejam comparáveis em fatores não relacionados ao paradigma.
+**Objetivo:** G1 e G2 comparáveis em fatores não relacionados ao paradigma (tamanho, maturidade, popularidade).
 
 **Estratégias:**
 
-1. **Balanceamento por tamanho:**
-   - Mesma distribuição de faixas de LOC em ambos os grupos
-   - Ex.: se G1 tem 4 projetos pequenos, G2 também terá
+**Balanceamento:**
+1. **Tamanho:** Mesma distribuição LOC (4 pequenos, 4 médios, 4 grandes por grupo)
+2. **Maturidade:** Distribuição similar de idade/commits
+3. **Domínio:** Pareamento funcional (DeFi ↔ FinTech; NFT ↔ Media)
+4. **Popularidade:** Distribuição similar de stars/forks
 
-2. **Balanceamento por maturidade:**
-   - Distribuição similar de idade e número de commits
-   - Evita confundir "maturidade" com "tipo de projeto"
+**Contrabalanço (ordem):**
+- Intercalar BC e TRAD na coleta (não processar todos BC depois todos TRAD)
+- Se houver assistentes: cada um analisa ambos os grupos
 
-3. **Balanceamento por domínio:**
-   - Pareamento aproximado de domínios funcionalmente equivalentes
-   - Ex.: DeFi (BC) ↔ FinTech API (TRAD); NFT (BC) ↔ Media API (TRAD)
-
-4. **Balanceamento por popularidade:**
-   - Considerar stars/forks como proxy de qualidade da comunidade
-   - Evitar que um grupo tenha apenas projetos muito populares ou obscuros
-
-### **Contrabalanço na coleta e análise:**
-
-**Para reduzir efeitos de ordem:**
-
-1. **Alternância de grupos:**
-   - Não processar todos os projetos BC seguidos de todos TRAD
-   - Intercalar: BC1 → TRAD1 → BC2 → TRAD2 → ...
-
-2. **Múltiplos avaliadores (se aplicável):**
-   - Se houver assistentes de pesquisa, distribuir projetos cruzadamente
-   - Cada avaliador analisa tanto BC quanto TRAD
-
-3. **Análise cega (quando possível):**
-   - Em análises qualitativas, tentar avaliar trechos de código sem saber o tipo de projeto
-   - Difícil mas vale para casos selecionados
-
-### **Verificação de balanceamento:**
-
-Antes da análise principal, verificar estatisticamente se os grupos estão balanceados:
-```r
-# Exemplo em R
-t.test(LOC ~ ProjectType, data=projects)  # tamanho
-chisq.test(table(projects$ProjectType, projects$Maturity))  # maturidade
-```
-
-Se desequilíbrios significativos forem detectados, usar **controle estatístico** (covariáveis) nas análises.
+**Verificação:** Antes da análise, testar estatisticamente se grupos estão balanceados (t-test para LOC, χ² para maturidade). Se houver desequilíbrio significativo, usar covariáveis nas análises.
 
 ---
 
-## 9.4 Número de grupos e sessões
+### 9.4 Número de grupos e sessões
 
-### **Grupos principais:**
+**Grupos principais:**
 
-**G1 – Blockchain**
-- n = 12 projetos
-- Critério: smart contracts em Solidity/Vyper
-- Subgrupos de interesse:
-  - G1a: DeFi (n ≈ 4)
-  - G1b: NFT/Gaming (n ≈ 3)
-  - G1c: Governança (n ≈ 3)
-  - G1d: Infraestrutura (n ≈ 2)
+| Grupo | n | Subgrupos |
+|-------|---|-----------|
+| **G1 - Blockchain** | 12 | DeFi (4), NFT/Gaming (3), Governança (3), Infraestrutura (2) |
+| **G2 - Tradicional** | 12 | APIs REST (4), Bibliotecas (3), Microserviços (3), CLI (2) |
 
-**G2 – Tradicional**
-- n = 12 projetos
-- Critério: backend/API em TypeScript, Java ou Python
-- Subgrupos de interesse:
-  - G2a: APIs REST (n ≈ 4)
-  - G2b: Bibliotecas (n ≈ 3)
-  - G2c: Microserviços (n ≈ 3)
-  - G2d: Ferramentas CLI (n ≈ 2)
-
-### **Granularidades de análise:**
+**Granularidades de análise:**
 
 | Nível | Unidade | N esperado | Uso |
 |-------|---------|------------|-----|
-| **Projeto** | Repositório completo | 24 | Comparação de perfis gerais, longevidade |
-| **Módulo/Arquivo** | Arquivo .sol, .ts, .java | 300-500 | Análise de complexidade, MI, duplicação |
-| **Função** | Método/função individual | 2000-5000 | Distribuições de CC, LOC, validações |
-| **Snapshot** | Release/tag específica | 48-72 | Evolução temporal (2-3 snapshots/projeto) |
+| Projeto | Repositório | 24 | Perfis gerais |
+| Arquivo | .sol, .ts, .java | 300-500 | CC, MI, duplicação |
+| Função | Método individual | 2000-5000 | Distribuições detalhadas |
+| Snapshot | Release/tag | 48-72 | Evolução (2-3/projeto) |
 
-### **Fases de coleta:**
+**Fases de execução (7 semanas):**
 
-O experimento não envolve "sessões" com participantes humanos, mas sim **fases sequenciais de coleta**:
+1. **Preparação (Sem 1):** Seleção, setup de ferramentas
+2. **Coleta estrutural (Sem 2-3):** Clonagem, métricas estáticas (LOC, CC, MI)
+3. **Coleta histórica (Sem 4):** Commits, hotspots, refatorações
+4. **Análise (Sem 5-6):** Estatística + estudos de caso
+5. **Síntese (Sem 7):** Resposta às questões, visualizações
 
-**Fase 1 – Preparação (Semana 1)**
-- Seleção e inventário de projetos
-- Setup de ferramentas e ambiente
-
-**Fase 2 – Coleta estrutural (Semanas 2-3)**
-- Clonagem, identificação de código de produção
-- Extração de métricas estáticas (LOC, CC, MI, etc.)
-
-**Fase 3 – Coleta histórica (Semana 4)**
-- Mineração de commits
-- Identificação de hotspots e refatorações
-
-**Fase 4 – Análise (Semanas 5-6)**
-- Análises estatísticas
-- Estudos de caso qualitativos
-
-**Fase 5 – Síntese (Semana 7)**
-- Resposta às questões de pesquisa
-- Documentação e visualizações
 ---
 # 10. População, sujeitos e amostragem
 
@@ -1181,525 +1097,1107 @@ O treinamento visa **padronizar execução e reduzir viés metodológico** dos p
 ---
 # 11. Instrumentação e protocolo operacional
 
-## 11.1 Instrumentos de coleta (questionários, logs, planilhas, etc.)
+## 11.1 Instrumentos de coleta
 
-A coleta é baseada em **mineração de repositórios e análise estática**. Os instrumentos são principalmente **ferramentas automatizadas, scripts e artefatos de dados**.
+A coleta baseia-se em **ferramentas automatizadas de análise estática e mineração de repositórios**.
 
-### **Instrumentos principais:**
+### **Ferramentas principais:**
 
-| Ferramenta | Propósito | Saída |
-|------------|-----------|-------|
-| **Slither** | Análise de smart contracts Solidity/Vyper | Métricas de complexidade, validações, eventos, modificadores |
-| **Lizard** | Complexidade ciclomática multi-linguagem | CC por função, LOC por arquivo |
-| **Radon** | Métricas de manutenibilidade Python | Maintainability Index, complexidade |
-| **SonarQube** | Análise abrangente de qualidade | Code smells, débito técnico, duplicação |
-| **PMD CPD** | Detecção de código duplicado | %LOC duplicada, grupos de clones |
-| **PyDriller** | Mineração de histórico Git | Commits, change sets, hotspots, co-changes |
-| **cloc/tokei** | Contagem de linhas de código | LOC total, LOC por linguagem |
+| Ferramenta | Versão | O que faz | Métricas coletadas |
+|------------|--------|-----------|-------------------|
+| **Slither** | 0.10.0 | Análise de smart contracts | Validações (require/assert), eventos, modificadores, chamadas externas |
+| **Lizard** | 1.17.10 | Complexidade ciclomática | CC, LOC por função, profundidade de aninhamento |
+| **Radon** | 5.1.0 | Manutenibilidade | Maintainability Index (MI), Halstead Volume |
+| **SonarQube** | 5.0 | Qualidade geral | Code smells, débito técnico, duplicação |
+| **PMD CPD** | 6.55.0 | Detecção de clones | % LOC duplicada, grupos de clones |
+| **PyDriller** | 2.5 | Mineração Git | Commits, hotspots, change sets |
+| **cloc** | 1.98 | Contagem de código | LOC total por linguagem |
 
-### **Armazenamento de dados:**
+### **Formato dos dados:**
 
-**Formatos estruturados:**
-- **CSV:** dados tabulares para análises estatísticas (métricas por projeto/arquivo/função)
-- **JSON:** metadados hierárquicos, configurações, mapeamentos (clones, dependências)
-
-**Organização do dataset:**
+**Estrutura de armazenamento:**
 ```
 data/
-├── raw/                    # Saídas brutas das ferramentas
-│   ├── slither/
-│   ├── lizard/
-│   ├── sonarqube/
-│   └── pydriller/
-├── processed/              # Dados limpos e integrados
-│   ├── metrics_project.csv
-│   ├── metrics_file.csv
-│   ├── metrics_function.csv
-│   └── history_commits.csv
-└── metadata/               # Metadados e logs
-    ├── sample_inventory.csv
-    ├── execution_log.csv
-    └── tool_versions.json
+├── raw/                    # Saídas diretas das ferramentas
+├── processed/              # Dados consolidados e normalizados
+│   ├── metrics_project.csv  # Métricas agregadas por projeto
+│   ├── metrics_file.csv     # Métricas por arquivo
+│   └── metrics_function.csv # Métricas por função
+└── metadata/               # Logs e controle
+    ├── sample_inventory.csv # Lista de projetos selecionados
+    └── tool_versions.json   # Versões de todas as ferramentas
 ```
 
-### **Suporte à reprodutibilidade:**
-
-**Repositório do experimento (GitHub):**
-- Pipeline completo versionado
-- Configurações e parâmetros documentados
-- Scripts de análise e visualização
-- Logs de execução completos
-
-**Controle de versões:**
-```json
-{
-  "tools": {
-    "slither": "0.10.0",
-    "lizard": "1.17.10",
-    "sonarqube": "5.0.1.3006",
-    "pydriller": "2.5",
-    "cloc": "1.98"
-  },
-  "seed": 42,
-  "execution_date": "2025-12-01"
-}
-```
+**Reprodutibilidade:** Todas as ferramentas terão versões fixas; seed aleatório = 42; código versionado no GitHub.
 
 ---
 
-## 11.2 Materiais de suporte (instruções, guias)
+## 11.2 Materiais de suporte
 
-### **Documentação padronizada:**
+**Documentos que acompanham o experimento:**
 
-**1. Guia de replicação (`README_experiment.md`):**
-- Pré-requisitos e instalação de ferramentas
-- Estrutura de diretórios
-- Comandos completos do pipeline
-- Exemplo de execução end-to-end
+1. **README_experiment.md:** Como replicar o experimento (pré-requisitos, instalação, comandos)
+2. **definitions.md:** Definições operacionais (o que é "código de produção", "hotspot", fórmulas de MI)
+3. **parameters.md:** Configurações exatas de cada ferramenta (thresholds, filtros)
+4. **Templates de registro:** Planilhas para documentar execução, exclusões e anomalias
 
-**2. Runbook operacional (`runbook.md`):**
-- Checklist de verificação por etapa
-- Comandos de execução por ferramenta
-- Validações esperadas
-- Troubleshooting comum
-
-**3. Guia de definições operacionais (`definitions.md`):**
-- Conceitos-chave: código de produção, hotspot, refatoração
-- Fórmulas de métricas (MI, debt ratio)
-- Regras de normalização e agregação
-- Critérios de classificação (tamanho, maturidade)
-
-**4. Documento de parâmetros (`parameters.md`):**
-- Configurações de cada ferramenta
-- Thresholds e filtros aplicados
-- Regras de exclusão padronizadas
-- Fórmulas de cálculo customizadas
-
-**5. Templates de registro:**
-- `execution_log_template.csv`: registro de execução por projeto
-- `exclusions_template.csv`: arquivos/módulos excluídos
-- `anomalies_template.csv`: problemas e resoluções
-- `case_study_template.md`: documentação de estudos de caso
+**Objetivo:** Garantir que qualquer pesquisador possa replicar o experimento exatamente.
 
 ---
 
-## 11.3 Procedimento experimental (protocolo – visão passo a passo)
+## 11.3 Procedimento Experimental (Passo a Passo)
 
-### **Fase 1: Preparação (Semana 1)**
+### Fluxograma Operacional do Experimento
 
-**1.1 Configurar ambiente:**
-- Instalar ferramentas (Slither, Lizard, SonarQube, PyDriller)
-- Verificar versões e registrar em `tool_versions.json`
-- Preparar estrutura de diretórios
+O fluxograma abaixo resume todas as etapas operacionais, desde a seleção dos projetos até a síntese dos resultados:
 
-**1.2 Selecionar projetos:**
-- Executar busca automatizada (GitHub/GitLab API)
-- Aplicar filtros de inclusão/exclusão
-- Realizar amostragem estratificada (seed=42)
-- Gerar `sample_inventory.csv`
-
-**1.3 Clonar repositórios:**
-```bash
-for project in sample_inventory.csv; do
-    git clone ${project_url} repos/${project_id}
-    cd repos/${project_id}
-    git checkout ${selected_commit_hash}
-    cd ../..
-done
-```
-
----
-
-### **Fase 2: Coleta estrutural (Semanas 2-3)**
-
-**2.1 Identificar código de produção:**
-- Localizar diretórios relevantes: `src/`, `contracts/`, `lib/`
-- Excluir: `test/`, `tests/`, `__tests__/`, `mock/`, `migrations/`
-- Excluir arquivos gerados: `*.generated.*`, `*.gen.*`, ABIs compilados
-- Registrar exclusões em `exclusions_log.csv`
-
-**2.2 Extrair métricas estruturais:**
-
-**Blockchain (Slither):**
-```bash
-slither ${project_path} --json slither_output.json \
-  --exclude-dependencies \
-  --filter-paths "test/,migrations/,node_modules/"
-```
-
-**Complexidade (Lizard):**
-```bash
-lizard -l solidity,python,typescript,java \
-  --exclude "*/test/*,*/tests/*,*.test.*,*.spec.*" \
-  --csv > lizard_output.csv
-```
-
-**Qualidade geral (SonarQube):**
-```bash
-sonar-scanner \
-  -Dsonar.projectKey=${project_id} \
-  -Dsonar.sources=src/,contracts/ \
-  -Dsonar.exclusions=**/test/**,**/*.test.*
-```
-
-**2.3 Detectar duplicação (PMD CPD):**
-```bash
-pmd cpd --minimum-tokens 50 \
-  --language solidity,typescript,java,python \
-  --files ${project_path} \
-  --format csv > cpd_output.csv
-```
-
-**2.4 Calcular MI (script customizado):**
-```python
-# Fórmula: MI = 171 - 5.2*ln(HV) - 0.23*CC - 16.2*ln(LOC)
-def calculate_mi(halstead_volume, cyclomatic_complexity, loc):
-    import math
-    mi = 171 - 5.2*math.log(halstead_volume) - 0.23*cyclomatic_complexity - 16.2*math.log(loc)
-    return max(0, min(100, mi))  # Normalizar 0-100
-```
-
----
-
-### **Fase 3: Coleta histórica (Semana 4)**
-
-**3.1 Minerar histórico Git (PyDriller):**
-```python
-from pydriller import Repository
-
-for commit in Repository(path_to_repo, 
-                         only_modifications_with_file_types=['.sol', '.ts', '.java', '.py']).traverse_commits():
-    # Extrair: hash, date, author, files_changed, insertions, deletions
-    # Calcular: hotspots (files com > percentil 90 de commits)
-    # Identificar: refatorações (mensagens com "refactor")
-```
-
-**3.2 Identificar hotspots:**
-- Contar commits por arquivo
-- Classificar arquivos > percentil 90 como hotspots
-- Relacionar hotspots com métricas estruturais
-
-**3.3 Analisar evolução temporal:**
-- Selecionar 2-3 snapshots por projeto (releases/tags)
-- Repetir extração de métricas para cada snapshot
-- Calcular tendências (Δ complexidade, Δ duplicação)
-
----
-
-### **Fase 4: Integração e validação (Semana 5)**
-
-**4.1 Consolidar datasets:**
-```python
-# Unir por chaves: project_id, file_path, function_name
-df_final = pd.merge(
-    slither_df, 
-    lizard_df, 
-    on=['project_id', 'file_path', 'function_name']
-).merge(
-    sonarqube_df,
-    on=['project_id', 'file_path']
-).merge(
-    pydriller_df,
-    on=['project_id', 'file_path']
-)
-```
-
-**4.2 Validar consistência:**
-- Verificar chaves únicas e ausências
-- Identificar outliers (IQR × 3)
-- Comparar LOC entre ferramentas (tolerância < 10%)
-- Registrar anomalias em `anomalies_log.csv`
-
-**4.3 Normalizar métricas:**
-- Métricas absolutas: normalizar por LOC do projeto/módulo
-- Calcular métricas agregadas: médias, medianas, percentis
-- Adicionar variáveis categóricas: grupo (G1/G2), tamanho, maturidade
-
----
-
-### **Fase 5: Análise (Semanas 6-7)**
-
-**5.1 Estatística descritiva:**
-- Calcular média, mediana, IQR por grupo (G1 vs G2)
-- Gerar tabelas de distribuição para todas as métricas-chave
-
-**5.2 Testes de hipóteses:**
-```r
-# Teste de normalidade
-shapiro.test(df$complexity)
-
-# Comparação entre grupos
-if (normal) {
-    t.test(complexity ~ group, data=df)
-    cohen.d(complexity ~ group, data=df)
-} else {
-    wilcox.test(complexity ~ group, data=df)
-    cliff.delta(complexity ~ group, data=df)
-}
-```
-
-**5.3 Análises de correlação:**
-```r
-# Spearman (padrão para dados não-normais)
-cor.test(df$duplication, df$maintainability, method="spearman")
-```
-
-**5.4 Modelagem explicativa:**
-```r
-# Regressão para MI
-model <- lm(MI ~ project_type + LOC + complexity + duplication, data=df)
-summary(model)
-```
-
-**5.5 Estudos de caso qualitativos:**
-- Selecionar casos extremos (CC > p95, MI < p5)
-- Revisar commits, PRs, issues relacionados
-- Documentar padrões e decisões de design
-
----
-
-### **Fase 6: Síntese (Semana 8)**
-
-**6.1 Responder questões de pesquisa:**
-- Consolidar evidências quantitativas e qualitativas
-- Mapear resultados para Q1.1 - Q5.3
-
-**6.2 Derivar recomendações:**
-- Identificar thresholds práticos (ex.: CC > 15 → alta complexidade)
-- Formular guidelines baseadas em evidências
-- Propor padrões arquiteturais
-
-**6.3 Gerar visualizações:**
-- Boxplots: G1 vs G2 para métricas principais
-- Scatter plots: correlações (duplicação × MI, CC × hotspots)
-- Heatmaps: métricas por projeto
-- Séries temporais: evolução de métricas
-
-**6.4 Documentar e publicar:**
-- Relatório final com metodologia, resultados e conclusões
-- Dataset anonimizado em repositório público
-- Scripts de análise e reprodução
-- Tag de versão final no Git
-
----
-
-## 11.4 Plano de piloto (se haverá piloto, escopo e critérios de ajuste)
-
-### **Escopo do piloto:**
-
-**Executar pipeline completo em 4 projetos:**
-- 2 blockchain (1 médio DeFi, 1 pequeno NFT)
-- 2 tradicionais (1 médio API TypeScript, 1 pequeno biblioteca Python)
-
-### **Objetivos:**
-
-1. **Validar ferramentas:** verificar que todas executam sem falhas críticas
-2. **Calibrar parâmetros:** ajustar thresholds (ex.: tamanho mínimo de clone)
-3. **Estimar tempo:** medir duração de cada etapa
-4. **Testar integrações:** verificar que datasets se unem corretamente
-5. **Refinar protocolo:** identificar ambiguidades e casos especiais
-
-### **Atividades:**
-
-**Semana 0 (piloto):**
-1. Selecionar 4 projetos piloto (não entram na amostra final)
-2. Executar Fase 1-4 do protocolo completo
-3. Documentar problemas, tempos, ajustes necessários
-4. Reunião de revisão: discutir melhorias
-
-**Ajustes permitidos após piloto:**
-
-- **Parâmetros de ferramentas:**
-  - Threshold de CPD (tokens mínimos para clone)
-  - Filtros de exclusão adicionais
-  - Configurações de SonarQube
-
-- **Definições operacionais:**
-  - Refinamento de "código de produção"
-  - Critérios para classificar refatorações
-  - Regras de normalização
-
-- **Amostra:**
-  - Ajuste de tamanho (se inviável processar 24 projetos)
-  - Ajuste de estratificação (se desbalanceamento severo)
-
-- **Templates e logs:**
-  - Campos adicionais em logs
-  - Melhorias em checklists
-
-### **Critérios de sucesso (go/no-go):**
-
-**Go (prosseguir com experimento):**
-- ≥ 80% do pipeline executa sem falhas críticas
-- Métricas essenciais (CC, LOC, MI, Dup%) extraídas com consistência
-- Tempo de execução viável (< 2h/projeto em média)
-- Datasets integram corretamente (chaves consistentes)
-
-**No-go (redesenhar experimento):**
-- Falhas sistemáticas em ferramentas-chave (Slither, Lizard)
-- Impossibilidade de extrair métricas comparáveis entre G1 e G2
-- Tempo de execução inviável (> 5h/projeto)
-- Inconsistências graves nos dados
-
-### **Saídas esperadas do piloto:**
-
-1. **Protocolo refinado:** versão 2.0 com ajustes incorporados
-2. **Parâmetros calibrados:** configurações finais de todas as ferramentas
-3. **Estimativa de esforço:** cronograma realista para 24 projetos
-4. **Dataset piloto:** exemplo de estrutura final dos dados
-5. **Lições aprendidas:** documento com problemas e soluções
-
----
----
-# 12. Fluxograma Operacional do Experimento
-
-## 12.1 Representação Visual do Processo
-
-O fluxograma a seguir ilustra todas as etapas necessárias para execução do experimento, desde a seleção dos projetos até a documentação final dos resultados.
 ```mermaid
 flowchart TD
-    A[Definir critérios de seleção] --> B[Buscar projetos no GitHub/GitLab]
-    B --> C{Aplicar filtros}
-    C --> D[Blockchain: Solidity/Vyper<br/>Min 500 LOC, auditorias]
-    C --> E[Tradicional: TS/Java/Python<br/>Backend/API, tamanho similar]
-    D --> F[Formar Grupo G1: Blockchain<br/>n=10-15 projetos]
-    E --> G[Formar Grupo G2: Tradicional<br/>n=10-15 projetos]
-    F --> H[Clonar repositórios e selecionar releases]
-    G --> H
-    H --> I[Identificar código de produção<br/>Excluir: testes, config, gerado]
-    I --> J[Instalar ferramentas de análise]
-    J --> K[Slither, Lizard, Radon, SonarQube]
-    K --> L[Extrair métricas estruturais]
-    L --> M[Tamanho: LOC, funções, módulos]
-    L --> N[Complexidade: CC, WMC, branches]
-    L --> O[Manutenibilidade: MI, debt, duplicação]
-    L --> P[Blockchain: requires, eventos, modificadores]
-    M --> Q[Minerar histórico Git]
-    N --> Q
-    O --> Q
-    P --> Q
-    Q --> R[Commits, hotspots, refatorações]
-    R --> S[Consolidar dataset CSV/JSON]
-    S --> T[Normalizar por LOC e validar]
-    T --> U{Dados consistentes?}
-    U -->|Não| V[Tratar ausências e outliers]
-    V --> T
-    U -->|Sim| W[Estatística descritiva por grupo]
-    W --> X[Testar normalidade: Shapiro-Wilk]
-    X --> Y{Distribuição normal?}
-    Y -->|Sim| Z[t-test: G1 vs G2]
-    Y -->|Não| AA[Mann-Whitney U: G1 vs G2]
-    Z --> AB[Testar hipóteses: α=0.05]
-    AA --> AB
-    AB --> AC{p-valor < 0.05?}
-    AC -->|Sim| AD[Rejeitar H0: diferenças significativas]
-    AC -->|Não| AE[Não rejeitar H0]
-    AD --> AF[Calcular tamanho de efeito<br/>Cohen's d, Cliff's Delta]
-    AE --> AF
-    AF --> AG[Análise de correlação<br/>Spearman/Pearson]
-    AG --> AH[Modelagem: Regressão<br/>MI = f tipo, LOC, CC]
-    AH --> AI[Selecionar casos extremos]
-    AI --> AJ[Revisar Issues, PRs, commits]
-    AJ --> AK[Identificar padrões arquiteturais]
-    AK --> AL[Responder Q1.1 a Q5.3]
-    AL --> AM[Derivar guidelines e thresholds]
-    AM --> AN[Gerar visualizações<br/>boxplots, scatter, heatmaps]
-    AN --> AO[Documentar no repositório GitHub]
-    AO --> AP[Fim]
+    Start([🎯 Início do Experimento]) --> Phase1[📋 FASE 1: SELEÇÃO]
+    
+    Phase1 --> A1[🔍 Buscar projetos via API<br/>GitHub e GitLab<br/>40-60 candidatos por grupo]
+    A1 --> A2[📊 Estratificar amostra<br/>Tamanho • Maturidade • Domínio]
+    A2 --> A3[🎲 Amostragem aleatória<br/>seed=42<br/>12 Blockchain + 12 Tradicionais]
+    
+    A3 --> Phase2[⚙️ FASE 2: COLETA]
+    
+    Phase2 --> B1[📥 Clonar 24 repositórios<br/>Identificar código de produção]
+    B1 --> B2[🔧 Executar ferramentas de análise<br/>Lizard • Slither • SonarQube<br/>PMD • Radon • PyDriller]
+    B2 --> B3[💾 Salvar métricas brutas<br/>data/raw/]
+    
+    B3 --> Phase3[🧹 FASE 3: PREPARAÇÃO]
+    
+    Phase3 --> C1[🔗 Consolidar dados<br/>Por projeto • arquivo • função]
+    C1 --> C2[✅ Validar consistência<br/>Detectar e tratar outliers]
+    C2 --> C3[📐 Normalizar métricas<br/>processed/metrics_*.csv]
+    
+    C3 --> Phase4[📈 FASE 4: ESTATÍSTICA]
+    
+    Phase4 --> D1[📊 Estatísticas descritivas<br/>Médias • Medianas • Distribuições]
+    D1 --> D2{🔔 Dados<br/>normais?}
+    D2 -->|Sim| D3[✓ Teste t]
+    D2 -->|Não| D4[✓ Mann-Whitney U]
+    D3 --> D5[🎯 Calcular significância<br/>p-valor e tamanho de efeito]
+    D4 --> D5
+    
+    D5 --> Phase5[🔍 FASE 5: QUALITATIVA]
+    
+    Phase5 --> E1[🎯 Selecionar casos extremos<br/>3 a 5 projetos notáveis]
+    E1 --> E2[📝 Analisar contexto<br/>Issues • Pull Requests • Commits]
+    E2 --> E3[🏷️ Codificação temática<br/>Identificar padrões recorrentes]
+    
+    E3 --> Phase6[📋 FASE 6: SÍNTESE]
+    
+    Phase6 --> F1[💡 Responder questões<br/>Q1.1 até Q5.3]
+    F1 --> F2[📌 Derivar recomendações<br/>Guidelines e thresholds]
+    F2 --> F3[📊 Gerar visualizações<br/>Documentação final]
+    
+    F3 --> End([✅ Experimento Concluído])
+    
+    style Start fill:#10B981,stroke:#059669,stroke-width:3px,color:#fff
+    style End fill:#10B981,stroke:#059669,stroke-width:3px,color:#fff
+    
+    style Phase1 fill:#3B82F6,stroke:#2563EB,stroke-width:2px,color:#fff
+    style Phase2 fill:#3B82F6,stroke:#2563EB,stroke-width:2px,color:#fff
+    style Phase3 fill:#3B82F6,stroke:#2563EB,stroke-width:2px,color:#fff
+    style Phase4 fill:#3B82F6,stroke:#2563EB,stroke-width:2px,color:#fff
+    style Phase5 fill:#3B82F6,stroke:#2563EB,stroke-width:2px,color:#fff
+    style Phase6 fill:#3B82F6,stroke:#2563EB,stroke-width:2px,color:#fff
+    
+    style A1 fill:#F8FAFC,stroke:#64748B,stroke-width:2px,color:#1E293B
+    style A2 fill:#F8FAFC,stroke:#64748B,stroke-width:2px,color:#1E293B
+    style A3 fill:#F8FAFC,stroke:#64748B,stroke-width:2px,color:#1E293B
+    
+    style B1 fill:#F8FAFC,stroke:#64748B,stroke-width:2px,color:#1E293B
+    style B2 fill:#F8FAFC,stroke:#64748B,stroke-width:2px,color:#1E293B
+    style B3 fill:#F8FAFC,stroke:#64748B,stroke-width:2px,color:#1E293B
+    
+    style C1 fill:#F8FAFC,stroke:#64748B,stroke-width:2px,color:#1E293B
+    style C2 fill:#F8FAFC,stroke:#64748B,stroke-width:2px,color:#1E293B
+    style C3 fill:#F8FAFC,stroke:#64748B,stroke-width:2px,color:#1E293B
+    
+    style D1 fill:#F8FAFC,stroke:#64748B,stroke-width:2px,color:#1E293B
+    style D2 fill:#FEF3C7,stroke:#F59E0B,stroke-width:2px,color:#92400E
+    style D3 fill:#F8FAFC,stroke:#64748B,stroke-width:2px,color:#1E293B
+    style D4 fill:#F8FAFC,stroke:#64748B,stroke-width:2px,color:#1E293B
+    style D5 fill:#F8FAFC,stroke:#64748B,stroke-width:2px,color:#1E293B
+    
+    style E1 fill:#F8FAFC,stroke:#64748B,stroke-width:2px,color:#1E293B
+    style E2 fill:#F8FAFC,stroke:#64748B,stroke-width:2px,color:#1E293B
+    style E3 fill:#F8FAFC,stroke:#64748B,stroke-width:2px,color:#1E293B
+    
+    style F1 fill:#F8FAFC,stroke:#64748B,stroke-width:2px,color:#1E293B
+    style F2 fill:#F8FAFC,stroke:#64748B,stroke-width:2px,color:#1E293B
+    style F3 fill:#F8FAFC,stroke:#64748B,stroke-width:2px,color:#1E293B
 ```
-## 12.2 Descrição das Etapas
+### **Visão geral das fases:**
 
-### **Etapa 1-2: Definição de Critérios e Busca**
-Estabelecimento dos critérios de inclusão/exclusão (seção 10.2 e 10.3) e busca sistemática de repositórios nas plataformas GitHub e GitLab. Os critérios separam projetos em duas categorias principais: blockchain e tradicional.
-
-### **Etapa 3-7: Seleção e Formação dos Grupos**
-Aplicação de filtros específicos para cada tipo:
-- **Blockchain (G1):** projetos em Solidity/Vyper, mínimo 500 LOC, preferencialmente com auditorias de segurança disponíveis
-- **Tradicional (G2):** aplicações backend/API em TypeScript, Java ou Python, com tamanho comparável aos projetos blockchain selecionados
-
-Cada grupo deve conter entre 10 e 15 projetos para garantir poder estatístico adequado.
-
-### **Etapa 8-9: Preparação dos Repositórios**
-Clonagem local dos repositórios, seleção de releases ou tags estáveis, e identificação do código de produção. Exclusão de código de teste, arquivos de configuração, scripts de build e código gerado automaticamente.
-
-### **Etapa 10-11: Configuração das Ferramentas**
-Instalação e configuração das ferramentas de análise estática:
-- **Slither:** análise especializada em contratos Solidity
-- **Lizard:** cálculo de complexidade ciclomática
-- **Radon:** métricas de manutenibilidade para Python
-- **SonarQube:** análise abrangente multi-linguagem
-
-### **Etapa 12-16: Extração de Métricas**
-Execução das ferramentas para coletar quatro categorias de métricas (conforme seção 3.4):
-1. **Tamanho:** LOC total, LOC por arquivo, número de funções e módulos
-2. **Complexidade:** complexidade ciclomática (CC), WMC, profundidade de aninhamento, branches por função
-3. **Manutenibilidade:** Maintainability Index (MI), Debt Ratio, code smells, duplicação de código
-4. **Específicas blockchain:** contagem de validações (require/assert), eventos emitidos, modificadores de acesso, chamadas entre contratos
-
-### **Etapa 17-18: Mineração do Histórico**
-Extração de dados do histórico Git usando ferramentas como PyDriller para responder questões Q4.x:
-- Frequência e padrão de commits
-- Identificação de hotspots (arquivos com alta taxa de mudança)
-- Detecção de grandes refatorações ou reescritas
-
-### **Etapa 19-21: Consolidação e Validação**
-Os dados coletados são consolidados em um dataset único (formato CSV/JSON), normalizados por LOC ou tamanho de projeto, e validados quanto à consistência. Tratamento de valores ausentes e outliers conforme critérios da seção 12.3.
-
-### **Etapa 22-24: Análise Exploratória**
-Cálculo de estatísticas descritivas (média, mediana, desvio padrão) por grupo (G1 e G2). Teste de normalidade usando Shapiro-Wilk para determinar se os dados seguem distribuição normal, o que influenciará a escolha dos testes estatísticos.
-
-### **Etapa 25-27: Comparação entre Grupos**
-Aplicação de testes estatísticos para comparar G1 (Blockchain) e G2 (Tradicional):
-- **t-test independente** se dados forem normais
-- **Mann-Whitney U** se dados não forem normais
-
-Uso de nível de significância α = 0.05 conforme especificado na seção 7.3.
-
-### **Etapa 28-31: Teste de Hipóteses**
-Avaliação formal das hipóteses H0 e H1 (seção 7.2):
-- **H0:** Não há diferença significativa entre blockchain e tradicional
-- **H1:** Blockchain apresenta maior complexidade e menor manutenibilidade
-
-Se p-valor < 0.05, rejeita-se H0. Cálculo do tamanho de efeito (Cohen's d ou Cliff's Delta) para quantificar a magnitude das diferenças observadas.
-
-### **Etapa 32-33: Correlação e Modelagem**
-Análise de correlação (Spearman/Pearson) entre variáveis-chave (ex: complexidade vs MI, LOC vs manutenibilidade). Construção de modelos de regressão para explicar MI em função do tipo de projeto, LOC e complexidade, respondendo questões da seção 3.3.
-
-### **Etapa 34-36: Análise Qualitativa**
-Seleção de casos extremos (projetos com complexidade muito alta ou MI muito baixo) para análise qualitativa detalhada. Revisão de issues, pull requests e commits para identificar padrões arquiteturais e decisões de design que expliquem os resultados quantitativos.
-
-### **Etapa 37-38: Síntese dos Resultados**
-Consolidação de todas as evidências para responder sistematicamente às questões de pesquisa Q1.1 a Q5.3 (seção 3.3). Derivação de guidelines práticas, thresholds de complexidade recomendados e padrões arquiteturais identificados.
-
-### **Etapa 39-41: Documentação e Publicação**
-Geração de visualizações finais (boxplots comparando G1 e G2, scatter plots de correlações, heatmaps de métricas). Organização de todo o material (código, dados, resultados) no repositório GitHub com documentação clara para replicação.
-
-## 12.3 Pontos de Decisão Críticos
-
-| Decisão | Etapa | Critério | Ação se Falhar |
-|---------|-------|----------|----------------|
-| **Elegibilidade** | 3 | Projeto atende critérios mínimos | Descartar e buscar outro |
-| **Consistência** | 21 | Ausência de erros críticos nos dados | Revisar coleta ou excluir observação |
-| **Normalidade** | 24 | Shapiro-Wilk p > 0.05 | Define teste não-paramétrico |
-| **Significância** | 28 | p-valor < 0.05 | Determina conclusão sobre hipóteses |
-
-## 12.4 Instrumentos e Ferramentas por Etapa
-
-| Etapas | Instrumento/Ferramenta | Propósito |
-|--------|------------------------|-----------|
-| 2 | GitHub API, GitLab API | Busca automatizada de repositórios |
-| 8 | Git CLI | Clonagem e checkout de releases |
-| 11 | Slither, Lizard, Radon, SonarQube | Extração de métricas |
-| 17 | PyDriller | Mineração do histórico Git |
-| 19 | Python/Pandas | Consolidação e limpeza de dados |
-| 25-27 | Python/scipy.stats, R | Testes estatísticos |
-| 39 | Matplotlib, Seaborn | Geração de visualizações |
-
-## 12.5 Saídas Esperadas por Fase
-
-- **Fase de Coleta:** Dataset bruto com métricas por projeto (CSV/JSON)
-- **Fase de Análise:** Tabelas de estatísticas descritivas, resultados de testes (p-valores, tamanhos de efeito)
-- **Fase de Síntese:** Documento de respostas às questões Q1-Q5, lista de guidelines, visualizações
-- **Fase de Publicação:** Repositório completo, relatório final, dataset anonimizado
+| Fase | Duração | Atividades principais | Saída |
+|------|---------|----------------------|-------|
+| **1. Preparação** | Semana 1 | Selecionar projetos, clonar repositórios | sample_inventory.csv |
+| **2. Coleta estrutural** | Semanas 2-3 | Executar ferramentas, extrair métricas | raw/metrics |
+| **3. Coleta histórica** | Semana 4 | Minerar commits, identificar hotspots | history_commits.csv |
+| **4. Integração** | Semana 5 | Consolidar dados, validar consistência | processed/metrics_*.csv |
+| **5. Análise** | Semanas 6-7 | Testes estatísticos, estudos de caso | Resultados, visualizações |
+| **6. Síntese** | Semana 8 | Responder questões, documentar | Relatório final |
 
 ---
+---
+
+## 11.4 Plano de piloto
+
+**Antes de processar os 24 projetos, fazer um teste com 4 projetos:**
+
+**Objetivo:** Validar que ferramentas funcionam, estimar tempo real, identificar problemas
+
+**Projetos piloto:**
+- 1 blockchain DeFi médio
+- 1 blockchain NFT pequeno
+- 1 tradicional API TypeScript médio
+- 1 tradicional biblioteca Python pequena
+
+**Critérios de sucesso:**
+- ✅ Todas as ferramentas rodam sem falhas críticas
+- ✅ Métricas (CC, LOC, MI, duplicação) são extraídas corretamente
+- ✅ Tempo < 2h por projeto
+- ✅ Dados se unem corretamente (chaves consistentes)
+
+**Se falhar:** Ajustar configurações de ferramentas, refinar critérios de exclusão, revisar protocolo
+
+**Após piloto:** Documentar ajustes, atualizar templates, re-executar piloto se mudanças forem grandes
+
+---
+# 12. Plano de análise de dados (pré-execução)
+
+## 12.1 Estratégia geral de análise (como responderá às questões)
+
+A análise combinará métodos quantitativos (estatísticas) e qualitativos (observação de padrões) para responder às questões de pesquisa.
+
+### **Estrutura por objetivo:**
+
+**Objetivo 1 – Caracterização estrutural**
+- Calcular médias de tamanho, complexidade e módulos
+- Criar gráficos de caixa para visualizar diferenças
+- Métricas: Complexidade Ciclomática, número de módulos, Linhas de Código (LOC)
+
+**Objetivo 2 – Impacto das restrições blockchain**
+- Contar validações de segurança por função
+- Comparar complexidade controlando tamanho
+- Medir código duplicado
+- Métricas: validações/função, Complexidade Ciclomática, % código duplicado
+
+**Objetivo 3 – Manutenibilidade**
+- Comparar Índice de Manutenibilidade (nota 0-100 de quão fácil é modificar)
+- Identificar arquivos que mudam muito (hotspots)
+- Métricas: Índice de Manutenibilidade, mudanças por arquivo
+
+**Objetivo 4 – Evolução histórica**
+- Analisar commits por mês
+- Identificar reescritas completas (>50% código mudou)
+- Métricas: commits/mês, reescritas, tamanho de correções
+
+**Objetivo 5 – Recomendações práticas**
+- Encontrar limites críticos (ex: complexidade > 15 = problema)
+- Estudar 3-5 projetos extremos detalhadamente
+- Identificar padrões de sucesso
+
+---
+
+## 12.2 Métodos estatísticos planejados
+
+### **Análises descritivas**
+- Calcular média, mediana, mínimo/máximo por grupo
+- Verificar distribuição normal dos dados
+- Criar tabelas e gráficos comparativos
+
+### **Comparação entre grupos (Blockchain vs Tradicional)**
+
+**Escolha do teste:**
+- Dados normais → **teste t**
+- Dados não-normais → **teste Mann-Whitney**
+- Nível de significância: 0,05 (5% de margem de erro)
+
+**Tamanho de efeito:**
+- Medir se diferença é grande o suficiente para importar na prática
+- Pequeno (0.2), Médio (0.5), Grande (0.8)
+
+**Exemplo de hipótese:**
+```
+H0 (nula): Complexidade média de Blockchain = Tradicional
+H1 (alternativa): Complexidade média de Blockchain ≠ Tradicional
+```
+
+### **Regressão**
+
+Entender como múltiplos fatores afetam resultado:
+```
+Índice de Manutenibilidade = Constante + 
+                             Efeito(tipo de projeto) + 
+                             Efeito(tamanho) + 
+                             Efeito(complexidade)
+```
+
+### **Correlação**
+
+Verificar se duas coisas variam juntas:
+- Complexidade vs Manutenibilidade
+- Validações vs Complexidade
+- Tamanho vs Duplicação
+
+Interpretação: < 0.3 (fraca), 0.3-0.7 (moderada), > 0.7 (forte)
+
+---
+
+## 12.3 Tratamento de dados faltantes e outliers
+
+### **Dados faltantes**
+
+| Situação | Solução |
+|----------|---------|
+| < 5% faltando | Substituir pela mediana |
+| 5-20% faltando | Imputação múltipla (MICE) |
+| > 20% faltando | Excluir variável |
+
+**Casos especiais:**
+- Métricas blockchain ausentes em projetos tradicionais: não preencher (é esperado)
+- Erros de ferramentas: documentar e tentar novamente
+
+### **Outliers (valores extremos)**
+
+**Identificação:**
+- Estatístico: valores muito acima/abaixo da distribuição
+- Lógico: valores impossíveis (complexidade negativa)
+
+**Tratamento:**
+
+| Tipo | Ação |
+|------|------|
+| Extremo válido | Manter; usar mediana |
+| Erro de medição | Excluir; documentar |
+| Impossível | Excluir; reportar bug |
+
+**Análise de sensibilidade:** Repetir testes com e sem outliers.
+
+---
+
+## 12.4 Plano de análise para dados qualitativos
+
+### **Fontes:**
+- Issues e Pull Requests (discussões de design)
+- Mensagens de commit (justificativas)
+- Documentação e comentários no código
+
+### **Método: Codificação Temática**
+
+**Fase 1:** Ler 5 projetos e identificar padrões iniciais
+- Exemplo: "preocupação com gas", "validação defensiva"
+
+**Fase 2:** Agrupar em categorias
+- Restrições técnicas (gas, imutabilidade)
+- Práticas de qualidade (testes, auditorias)
+- Trade-offs (segurança vs complexidade)
+
+**Fase 3:** Interpretar padrões recorrentes
+- Exemplo: "Projetos de alta qualidade usam bibliotecas padronizadas"
+
+### **Triangulação (combinar números + observações):**
+
+| Evidência quantitativa | Evidência qualitativa | Conclusão |
+|------------------------|----------------------|-----------|
+| Blockchain tem mais duplicação | Issues mencionam "custo de chamadas" | Duplicação é estratégia consciente |
+| Mais validações/função | Commits explicam "proteção reentrancy" | Validações são resposta à imutabilidade |
+
+---
+
+## 12.5 Cronograma de análise
+
+| Semana | Atividade | Saída |
+|--------|-----------|-------|
+| **5** | Limpar dados, tratar ausentes/outliers | Dataset limpo |
+| **6** | Estatísticas descritivas, testes de comparação | Tabelas, resultados de hipóteses |
+| **7** | Regressões, correlações, análise qualitativa | Modelos finais, temas identificados |
+| **8** | Síntese e resposta às questões de pesquisa | Relatório final, recomendações |
+
+---
+
+# 13. Avaliação de validade (ameaças e mitigação)
+
+## 13.1 Validade de conclusão
+
+A validade de conclusão refere-se à capacidade de tirar conclusões estatísticas corretas sobre a relação entre tratamento e resultado.
+
+### **Principais ameaças identificadas:**
+
+**1. Baixo poder estatístico (nível de projeto)**
+- **Descrição:** Com n=12 projetos por grupo, o experimento pode ter poder limitado para detectar efeitos pequenos nas comparações em nível de projeto.
+- **Impacto:** Médio - Análise multi-nível (função, arquivo, projeto) compensa
+- **Probabilidade:** Baixa
+
+**2. Violação de pressupostos de normalidade**
+- **Descrição:** Métricas de software podem apresentar distribuições assimétricas, com valores extremos.
+- **Impacto:** Baixo - Testes não-paramétricos serão aplicados quando necessário
+- **Probabilidade:** Média
+
+**3. Heterogeneidade intra-grupo**
+- **Descrição:** Variabilidade entre projetos dentro do mesmo grupo devido a diferenças de domínio, tamanho e práticas.
+- **Impacto:** Médio - Estratificação e covariáveis reduzem impacto
+- **Probabilidade:** Média
+
+**4. Erro de medição das ferramentas**
+- **Descrição:** Ferramentas de análise estática podem produzir resultados inconsistentes dependendo da linguagem ou padrões de código.
+- **Impacto:** Baixo - Validação cruzada entre ferramentas mitiga
+- **Probabilidade:** Baixa
+
+### **Estratégias de mitigação:**
+
+1. **Análise em múltiplas granularidades**
+   - Análises em três níveis: projeto (n=24), arquivo (n=300-500), função (n=2000-5000)
+   - Nível de função fornece poder estatístico > 0.90 para efeitos médios (d ≥ 0.5)
+   - Triangulação entre níveis para validação cruzada
+
+2. **Uso de testes não-paramétricos**
+   - Teste de Shapiro-Wilk para avaliar normalidade antes de cada análise
+   - Mann-Whitney U quando normalidade for violada
+   - Teste t apenas quando pressupostos forem atendidos
+
+3. **Ênfase em tamanho de efeito e significância prática**
+   - Reportar Cohen's d ou Cliff's Delta para todas as comparações
+   - Intervalos de confiança de 95% para estimativas principais
+   - Priorizar relevância prática sobre p-valores isolados
+
+4. **Análise de sensibilidade**
+   - Repetir análises excluindo outliers extremos (> 3×IQR)
+   - Verificar robustez dos resultados
+   - Documentar casos sensíveis a outliers
+
+5. **Validação cruzada entre ferramentas**
+   - Comparar CC medido por Lizard vs SonarQube em subconjunto
+   - Verificar concordância > 90% antes de usar dados
+   - Usar múltiplas ferramentas para métricas críticas
+
+---
+
+## 13.2 Validade interna
+
+A validade interna refere-se à capacidade de estabelecer relação causal entre o tipo de projeto e as métricas observadas, eliminando explicações alternativas.
+
+### **Principais ameaças identificadas:**
+
+**1. Viés de seleção**
+- **Descrição:** Projetos blockchain podem atrair desenvolvedores com perfil técnico diferente comparado a projetos tradicionais.
+- **Impacto:** Médio - Balanceamento por tamanho/maturidade reduz
+- **Probabilidade:** Média
+
+**2. História (eventos externos)**
+- **Descrição:** Eventos específicos do ecossistema blockchain (forks, hacks) podem afetar padrões de desenvolvimento.
+- **Impacto:** Baixo - Foco em snapshots estáveis mitiga
+- **Probabilidade:** Baixa
+
+**3. Maturação**
+- **Descrição:** Projetos mais antigos tendem a ter melhor qualidade independente do paradigma.
+- **Impacto:** Baixo - Balanceamento de maturidade entre grupos
+- **Probabilidade:** Média
+
+**4. Instrumentação**
+- **Descrição:** Ferramentas diferentes para blockchain (Slither) e tradicional podem ter critérios distintos.
+- **Impacto:** Baixo - Métricas padronizadas (CC, LOC, MI) são comparáveis
+- **Probabilidade:** Baixa
+
+**5. Frameworks e bibliotecas padrão**
+- **Descrição:** Uso de OpenZeppelin vs frameworks tradicionais pode influenciar complexidade.
+- **Impacto:** Médio - Coleta de metadados permite controle estatístico
+- **Probabilidade:** Média
+
+### **Estratégias de mitigação:**
+
+1. **Balanceamento entre grupos**
+   - Estratificação por tamanho: 4 pequenos, 4 médios, 4 grandes por grupo
+   - Distribuição similar de maturidade entre grupos
+   - Pareamento funcional de domínios (DeFi ↔ FinTech; NFT ↔ Media)
+   - Distribuição similar de popularidade (stars/forks)
+
+2. **Verificação estatística de balanceamento**
+   - Teste t para LOC_total (tamanho)
+   - Teste χ² para distribuição de maturidade
+   - Se desequilíbrio significativo, usar covariáveis
+
+3. **Análise estratificada**
+   - Análises separadas por estrato quando apropriado
+   - Análise por domínio (DeFi vs NFT vs APIs vs Libraries)
+   - Verificar consistência de resultados entre estratos
+
+4. **Controle de variáveis de confusão**
+   - Coletar metadados: frameworks, auditorias, CI/CD, número de contribuidores
+   - Incluir confusores como covariáveis em regressões
+   - Análises de sensibilidade excluindo projetos extremos
+
+5. **Documentação de eventos externos**
+   - Registrar eventos relevantes durante coleta histórica
+   - Avaliar coincidência com mudanças em métricas
+   - Marcar períodos anômalos na análise temporal
+
+6. **Randomização de ordem de processamento**
+   - Embaralhar ordem de processamento (seed=42)
+   - Alternar blockchain e tradicional: BC1 → TRAD3 → BC5 → TRAD2
+   - Reduzir viés de aprendizado e fadiga
+
+---
+
+## 13.3 Validade de constructo
+
+A validade de constructo refere-se ao grau em que as medidas operacionais representam os conceitos teóricos de interesse.
+
+### **Principais ameaças identificadas:**
+
+**1. Sub-representação do constructo**
+- **Descrição:** Métricas como CC e MI são proxies imperfeitos de "qualidade" geral.
+- **Impacto:** Médio - Múltiplas métricas por constructo compensam
+- **Probabilidade:** Média
+
+**2. Mono-method bias**
+- **Descrição:** Dependência excessiva de análise estática pode ignorar aspectos qualitativos.
+- **Impacto:** Baixo - Triangulação quantitativo-qualitativo mitiga
+- **Probabilidade:** Baixa
+
+**3. Ambiguidade de definições operacionais**
+- **Descrição:** "Código de produção" pode ser categorizado inconsistentemente.
+- **Impacto:** Baixo - Protocolo explícito e piloto reduzem ambiguidade
+- **Probabilidade:** Baixa
+
+**4. Viés de confirmação do pesquisador**
+- **Descrição:** Pesquisador pode interpretar dados de forma a confirmar hipóteses esperadas.
+- **Impacto:** Baixo - Critérios objetivos pré-definidos mitigam
+- **Probabilidade:** Baixa
+
+**5. Métricas específicas de paradigma**
+- **Descrição:** Validações (require/assert) são específicas de blockchain, dificultando comparação direta.
+- **Impacto:** Baixo - Comparação intra-blockchain e uso de proxies
+- **Probabilidade:** Média
+
+### **Estratégias de mitigação:**
+
+1. **Triangulação metodológica**
+   - Combinar quantitativo (métricas automatizadas) e qualitativo (issues, PRs, commits)
+   - Resultados devem convergir; divergências sinalizam problemas
+   - Exemplo: CC alto + issues sobre manutenção = confirmação
+
+2. **Múltiplas métricas por constructo**
+   - **Complexidade:** CC, WMC, profundidade de aninhamento, branches/função
+   - **Manutenibilidade:** MI, debt ratio, code smells, frequência de mudanças
+   - **Tamanho:** LOC total, LOC por módulo, número de funções
+
+3. **Protocolo explícito e testado**
+   - Regras claras para "código de produção" (incluir src/, excluir test/)
+   - Piloto em 4 projetos para testar protocolo
+   - Manter execution_log.csv com decisões caso-a-caso
+
+4. **Validação cruzada entre ferramentas**
+   - CC: Lizard + SonarQube
+   - Duplicação: PMD CPD + análise manual em amostra
+   - Concordância > 90%
+
+5. **Cegamento parcial na análise qualitativa**
+   - Critérios objetivos pré-definidos (CC ≥ p95, MI < p5)
+   - Buscar evidências de trade-offs conscientes e problemas reais
+
+6. **Comparações válidas para métricas específicas**
+   - Validações: comparar dentro de blockchain (DeFi vs NFT)
+   - Para tradicional: proxies como `if (!condition) throw Error`
+   - Documentar limitações
+
+---
+
+## 13.4 Validade externa
+
+A validade externa refere-se à capacidade de generalizar os resultados para outros contextos e situações.
+
+### **Principais ameaças identificadas:**
+
+**1. Contexto específico: EVM e Solidity**
+- **Descrição:** Estudo limitado a Ethereum Virtual Machine e Solidity (≥ v0.6.0).
+- **Impacto:** Médio - Mecanismos causais permitem inferências para outros contextos
+- **Probabilidade:** Média
+
+**2. Projetos open-source vs. corporativos**
+- **Descrição:** Projetos OSS podem ter dinâmica diferente de projetos corporativos.
+- **Impacto:** Médio - Restrições técnicas (gas, imutabilidade) são universais
+- **Probabilidade:** Média
+
+**3. Linguagens específicas no grupo tradicional**
+- **Descrição:** Amostra focada em TypeScript, Java, Python.
+- **Impacto:** Baixo - Linguagens representativas de paradigmas OO modernos
+- **Probabilidade:** Baixa
+
+**4. Domínios de aplicação específicos**
+- **Descrição:** Blockchain focado em DeFi, NFT, Governança; tradicional em APIs/Libraries.
+- **Impacto:** Baixo - Diversificação intencional da amostra mitiga
+- **Probabilidade:** Baixa
+
+**5. Período temporal limitado**
+- **Descrição:** Estudo conduzido em 2025; ecossistema blockchain evolui rapidamente.
+- **Impacto:** Baixo - Foco em restrições arquiteturais fundamentais
+- **Probabilidade:** Baixa
+
+### **Contextos de generalização:**
+
+**Generalização PROVÁVEL (alta confiança):**
+- Projetos OSS blockchain EVM (Solidity/Vyper) em produção
+- Domínios DeFi, NFT, Governança/DAO em Ethereum mainnet
+- Projetos tradicionais OSS backend/APIs em TypeScript, Java, Python
+- Período: 2023-2027 (estabilidade relativa de Solidity)
+
+**Generalização CAUTELOSA (confiança moderada):**
+- Blockchains EVM-compatíveis (Polygon, BSC, Arbitrum)
+- Projetos corporativos blockchain (restrições técnicas similares)
+- Outras linguagens OO tradicionais (C#, Ruby)
+- Layer 2 solutions (gas costs menores)
+
+**Generalização NÃO RECOMENDADA (baixa confiança):**
+- Blockchains não-EVM (Solana, Cardano, Algorand)
+- Projetos embedded, IoT, desktop
+- Linguagens funcionais puras (Haskell, Elixir)
+- Smart contracts fora de produção (testnets)
+
+### **Estratégias para maximizar generalização:**
+
+1. **Diversificação intencional da amostra**
+   - Múltiplos domínios, tamanhos e maturidades
+   - Diferentes níveis de popularidade e adoção
+
+2. **Documentação explícita de limitações**
+   - Seção "Contextos de Aplicabilidade" no relatório final
+   - Especificar claramente onde resultados se aplicam
+
+3. **Discussão de mecanismos causais**
+   - Explicar "por quê" além de "o quê"
+   - Se mecanismo for "gas costs", aplicável a outras blockchains com gas
+   - Se mecanismo for "imutabilidade", aplicável a qualquer blockchain imutável
+
+4. **Replicação facilitada**
+   - Protocolo completo, scripts e dados publicados
+   - Instruções para adaptar metodologia a outros contextos
+
+---
+
+## 13.5 Resumo das principais ameaças e estratégias
+
+Esta tabela consolida as ameaças identificadas e as estratégias de mitigação:
+
+| Tipo de Validade | Ameaça Principal | Probabilidade | Impacto | Estratégia de Mitigação | Status |
+|------------------|------------------|---------------|---------|-------------------------|--------|
+| **Conclusão** | Baixo poder (nível projeto) | Baixa | Médio | Análise multi-nível (função > arquivo > projeto) | ✅ Planejado |
+| **Conclusão** | Violação de normalidade | Média | Baixo | Testes não-paramétricos quando necessário | ✅ Planejado |
+| **Conclusão** | Heterogeneidade intra-grupo | Média | Médio | Estratificação + tamanho de efeito + IC 95% | ✅ Planejado |
+| **Interna** | Viés de seleção | Média | Médio | Balanceamento + estratificação + randomização | ✅ Planejado |
+| **Interna** | Confusores (frameworks) | Média | Médio | Metadados + covariáveis + análise estratificada | ✅ Planejado |
+| **Interna** | Maturação | Média | Baixo | Balanceamento de maturidade entre grupos | ✅ Planejado |
+| **Constructo** | Sub-representação | Média | Médio | Triangulação + múltiplas métricas | ✅ Planejado |
+| **Constructo** | Mono-method bias | Baixa | Baixo | Análise estática + estudos de caso qualitativos | ✅ Planejado |
+| **Constructo** | Ambiguidade de definições | Baixa | Baixo | Protocolo explícito + piloto + logs | ✅ Planejado |
+| **Externa** | Contexto específico (EVM) | Média | Médio | Documentação de limitações + mecanismos causais | ⚠️ Limitação aceita |
+| **Externa** | OSS vs corporativo | Média | Médio | Discussão de restrições técnicas universais | ⚠️ Limitação aceita |
+
+### **Legenda:**
+- **Planejado:** Estratégia de mitigação implementada no desenho
+- **Limitação aceita:** Ameaça reconhecida mas não mitigável; será documentada
+
+### **Ameaças residuais (não mitigáveis):**
+1. **Validade externa limitada a EVM/Solidity:** Não é possível incluir outras blockchains sem inviabilizar o estudo
+2. **Contexto OSS:** Projetos corporativos fechados não são viáveis em estudo acadêmico
+3. **Período temporal:** Resultados refletem estado do ecossistema em 2023-2025
+
+**Nota:** As ameaças foram reavaliadas considerando as estratégias robustas de mitigação planejadas (análise multi-nível, balanceamento rigoroso, triangulação metodológica, protocolo explícito). A maioria das ameaças tem probabilidade baixa-média e impacto baixo-médio devido às múltiplas camadas de controle metodológico.
+
+---
+
+# 14. Ética, privacidade e conformidade
+
+## 14.1 Questões éticas (uso de sujeitos, incentivos, etc.)
+
+**Natureza do estudo:** Observacional retrospectivo sem participantes humanos diretos.
+
+**Questões éticas relevantes:**
+- Não há riscos aos desenvolvedores (análise de código público)
+- Não há incentivos, coerção ou conflitos de interesse
+- Projetos serão citados adequadamente respeitando licenças OSS
+- Vulnerabilidades encontradas não serão divulgadas publicamente sem notificação prévia aos mantenedores
+
+**Uso respeitoso de recursos:**
+- Coleta não-intrusiva respeitando rate limits de APIs
+- Clonagem única de repositórios
+- Análise focada em padrões agregados, não exposição de problemas individuais
+
+---
+
+## 14.2 Consentimento informado
+
+**Status:** Não aplicável
+
+**Justificativa:**
+- Não há participantes humanos como sujeitos de pesquisa
+- Análise de artefatos de software públicos sob licenças OSS permissivas
+- Publicação sob licenças open-source constitui consentimento implícito para uso acadêmico
+- Precedente estabelecido em Mineração de Repositórios de Software (MSR)
+
+**Práticas de transparência:**
+- Metodologia completa será documentada e publicada
+- Código de análise será open-source
+- Projetos serão citados com reconhecimento adequado
+
+---
+
+## 14.3 Privacidade e proteção de dados
+
+**Classificação dos dados:** Exclusivamente técnicos e não-pessoais (métricas de código, metadados de repositórios, histórico de commits).
+
+**Dados explicitamente excluídos:**
+- Nomes completos de desenvolvedores
+- Endereços de email
+- Informações demográficas
+- Dados de perfil de plataformas
+- Quaisquer identificadores pessoais
+
+**Medidas de proteção:**
+- Processamento local (sem envio a servidores externos)
+- Anonimização de referências a desenvolvedores em análises qualitativas
+- Repositório privado durante execução
+- Apenas estatísticas agregadas serão publicadas
+- Projetos individuais referenciados usando pseudônimos em estudos de caso
+
+**Período de retenção:**
+- Clones de repositórios: até 6 meses após defesa
+- Métricas processadas: 2 anos (requisito acadêmico)
+- Descarte seguro após períodos estabelecidos
+
+**Conformidade regulatória:**
+- **LGPD:** Não aplicável (sem dados pessoais)
+- **GDPR:** Não aplicável (sem dados pessoais de cidadãos europeus)
+
+---
+
+## 14.4 Aprovações necessárias (comitê de ética, jurídico, DPO, etc.)
+
+**Comitê de Ética em Pesquisa:**
+- **Status:** Não necessário
+- **Fundamentação:** Resolução CNS 510/2016 - pesquisa com informações de acesso público; sem participantes humanos diretos
+
+**Termo de Consentimento Livre e Esclarecido:**
+- **Status:** Não aplicável
+- **Justificativa:** Análise de dados públicos sob licenças que autorizam uso acadêmico
+
+**Aprovação sob LGPD/DPO:**
+- **Status:** Não aplicável
+- **Justificativa:** Nenhum dado pessoal coletado ou processado
+
+**Aprovações acadêmicas:**
+- **Orientador:** Aprovação formal do plano antes da execução (Semana 0) - **Status:** Pendente
+- **Banca Examinadora:** Avaliação durante defesa do TCC (3-4 meses após conclusão) - **Status:** Futuro
+
+**Aprovações jurídicas/compliance:**
+- **Status:** Não necessárias
+- **Justificativa:** Dados públicos sob licenças OSS que autorizam análise para pesquisa
+
+**Documentação:** Todas as aprovações acadêmicas serão registradas no repositório do experimento.
+
+---
+
+# 15. Recursos, infraestrutura e orçamento
+
+## 15.1 Recursos humanos e papéis
+
+| Papel | Responsável | Alocação | Responsabilidades |
+|-------|-------------|----------|-------------------|
+| **Pesquisador Principal (PI)** | Gabriel Pongelupe | 20h/semana (8 semanas) | Desenho metodológico, execução completa (seleção, coleta, análise), redação do relatório, decisões científicas |
+| **Orientador Acadêmico** | [Nome do Orientador] | 2h/semana (consultoria) | Revisão metodológica, feedback sobre coleta/análise, aprovação de mudanças, orientação científica |
+
+**Carga de trabalho total:**
+- Pesquisador principal: ~165 horas (8 semanas)
+- Orientador: ~12 horas (reuniões + revisões)
+
+**Qualificações necessárias (PI):**
+- Smart contracts Solidity e blockchain
+- TypeScript, Java, Python
+- Análise estática de código
+- Git e mineração de repositórios
+- Python e análise estatística
+
+---
+
+## 15.2 Infraestrutura técnica necessária
+
+**Hardware:**
+- Computador: 4+ cores (recomendado 8), 16GB RAM (recomendado 32GB), 500GB SSD
+- Sistema operacional: Linux (Ubuntu 22.04+), macOS (12+) ou Windows 10/11
+- Internet: 10 Mbps mínimo
+
+**Software e ferramentas:**
+- **Linguagens:** Python 3.9+, Node.js 18+, Java 11+, Docker 24+
+- **Análise estática:** Slither 0.10.0, Lizard 1.17.10, Radon 5.1.0, SonarQube 5.0, PMD CPD 6.55.0, PyDriller 2.5, CLOC 1.98
+- **Bibliotecas Python:** Pandas 2.0.3, NumPy 1.24.3, SciPy 1.11.2, Matplotlib 3.7.2, Seaborn 0.12.2, Jupyter 1.0.0, GitPython 3.1.32
+- **Controle de versão:** Git 2.40+
+
+**Estrutura de armazenamento:**
+```
+data/
+├── raw/                    # Saídas brutas (~50GB)
+├── processed/              # Dados consolidados
+└── metadata/               # Logs e controle
+```
+
+**Backup:**
+- Diário: disco rígido externo
+- Semanal: serviço de nuvem criptografado
+- Contínuo: repositório Git remoto privado
+
+**APIs e serviços externos (todos gratuitos):**
+- GitHub API: 5000 req/h
+- GitLab API: 2000 req/h
+- Etherscan API (opcional): 5 req/s
+
+---
+
+## 15.3 Materiais e insumos
+
+**Materiais digitais:**
+- Todas as ferramentas são open-source (custo: R$ 0)
+- Templates: inventário, logs de execução/exclusões, estudos de caso
+- Lista de projetos candidatos: coletada via APIs públicas
+
+**Materiais físicos (opcionais):**
+- Disco rígido externo 1TB para backup: ~R$ 300 (se não disponível)
+- Pen drive 64GB: ~R$ 50 (se necessário)
+
+**Recursos de terceiros:**
+- Acesso gratuito a GitHub/GitLab
+- Documentação oficial das ferramentas
+
+---
+
+## 15.4 Orçamento e custos estimados
+
+| Item | Custo |
+|------|-------|
+| Ferramentas de software | R$ 0 (open-source) |
+| Infraestrutura computacional | R$ 0 (equipamento pessoal) |
+| APIs e serviços externos | R$ 0 (tiers gratuitos) |
+| Armazenamento externo | R$ 0 a R$ 350 (opcional) |
+| Recursos humanos | R$ 0 (trabalho acadêmico) |
+| Publicação | R$ 0 (defesa acadêmica) |
+
+**Custo total:**
+- Cenário mínimo: **R$ 0**
+- Cenário máximo: **R$ 350**
+
+**Fonte de financiamento:** Recursos próprios do pesquisador (se necessário). Sem solicitação de bolsas ou auxílios institucionais.
+
+---
+
+# 16. Cronograma, marcos e riscos operacionais
+
+## 16.1 Macrocronograma (até o início da execução)
+
+| Semana | Fase | Atividades | Responsável | Entregável |
+|--------|------|------------|-------------|------------|
+| **0** | Conclusão do plano | Finalização e aprovação formal do plano | Gabriel Pongelupe | Plano aprovado |
+| **1** | Preparação e piloto | Setup de ferramentas, execução de piloto (4 projetos), ajustes | Gabriel Pongelupe | Protocolo validado |
+| **2-3** | Coleta estrutural | Clonagem de 24 repositórios, execução de ferramentas de análise | Gabriel Pongelupe | Métricas estruturais |
+| **4** | Coleta histórica | Mineração Git, hotspots, refatorações | Gabriel Pongelupe | Métricas de evolução |
+| **5** | Consolidação | Integração, validação, tratamento de outliers | Gabriel Pongelupe | Datasets consolidados |
+| **6-7** | Análise | Estatística (testes, regressões), estudos de caso qualitativos | Gabriel Pongelupe | Resultados e insights |
+| **8** | Síntese | Resposta às questões, recomendações, visualizações | Gabriel Pongelupe | Relatório preliminar |
+| **9** | Revisão final | Revisão pelo orientador, ajustes finais, preparação de defesa | PI + Orientador | Trabalho completo |
+
+**Data de início:** Após aprovação do plano pelo orientador  
+**Duração total:** 9 semanas (incluindo 1 semana de buffer)
+
+---
+
+## 16.2 Dependências entre atividades
+
+**Caminho crítico (dependências sequenciais):**
+1. Plano aprovado → Setup de ferramentas
+2. Setup completo → Piloto
+3. Piloto bem-sucedido → Coleta estrutural
+4. Coleta estrutural completa → Coleta histórica
+5. Coleta histórica completa → Consolidação
+6. Consolidação finalizada → Análise estatística
+7. Análise estatística → Seleção de casos qualitativos
+8. Análise qualitativa → Síntese final
+
+**Atividades paralelas possíveis:**
+- Durante coleta estrutural (Sem 2-3): iniciar coleta histórica dos primeiros projetos processados
+- Durante análise estatística (Sem 6): iniciar seleção preliminar de casos extremos
+
+**Bloqueios críticos:**
+- Problemas no piloto → bloqueiam coleta completa
+- Falhas de ferramentas em múltiplos projetos → bloqueiam consolidação
+- Inconsistências graves nos dados → bloqueiam análise estatística
+
+---
+
+## 16.3 Riscos operacionais e plano de contingência
+
+| Risco | Probabilidade | Impacto | Contingência |
+|-------|---------------|---------|--------------|
+| **Repositórios inacessíveis** | Baixa | Alto | 3 projetos reserva por grupo; clonagem antecipada na Semana 1 |
+| **Falha de ferramentas em Solidity** | Média | Alto | Ferramenta alternativa (Mythril); análise manual complementar; substituição por projeto reserva se > 30% falharem |
+| **Dados insuficientes após filtros** | Baixa | Médio | Relaxar critérios menos críticos (ex: LOC mínimo de 500→300); documentar ajustes |
+| **Atraso na coleta histórica** | Média | Baixo | Priorizar snapshot único; considerar análise temporal secundária; usar buffer de 1 semana |
+| **Complexidade da análise > previsto** | Média | Médio | Priorizar objetivos O1-O3; reduzir casos qualitativos (5→3); focar testes principais; usar buffer |
+| **Problemas técnicos (hardware/software)** | Baixa | Médio | Backup diário; versionamento Git; documentação de ambiente; reprocessar apenas projetos afetados |
+
+---
+
+# 17. Governança do experimento
+
+## 17.1 Papéis e responsabilidades formais
+
+| Papel | Responsável | Decisão | Execução | Revisão | Informado |
+|-------|-------------|---------|----------|---------|-----------|
+| **Principal Investigator (PI)** | Gabriel Pongelupe | ✓ | ✓ | - | - |
+| **Orientador Acadêmico** | [Nome] | - | - | ✓ | ✓ |
+| **Banca Examinadora** | [Membros] | ✓ (aprovação final) | - | ✓ | - |
+
+**Fluxo de responsabilidade:**
+- PI: todas as decisões metodológicas e operacionais; execução completa; cumprimento de prazos
+- Orientador: revisão crítica; feedback sobre análises; aprovação de mudanças significativas
+- Banca: avaliação final e aprovação do TCC
+
+---
+
+## 17.2 Ritos de acompanhamento pré-execução
+
+**Reuniões de orientação:**
+- Frequência: Semanal (1 hora)
+- Participantes: PI + Orientador
+- Objetivo: Progresso, dúvidas metodológicas, revisão de decisões
+
+**Checkpoints críticos:**
+
+| Semana | Checkpoint | Artefato | Aprovação |
+|--------|-----------|----------|-----------|
+| 0 | Plano completo | Documento final | Orientador |
+| 1 | Piloto executado | Relatório + ajustes | Orientador (se mudanças grandes) |
+| 5 | Dados consolidados | Dataset + log de qualidade | Orientador (revisão) |
+| 8 | Rascunho do relatório | Resultados preliminares | Orientador (feedback) |
+
+**Comunicação assíncrona:** Email (dúvidas, 48h resposta); Repositório Git (versionamento)
+
+---
+
+## 17.3 Processo de controle de mudanças no plano
+
+**Mudanças menores (sem aprovação formal):**
+- Ajustes de parâmetros (identificados no piloto)
+- Substituição de projeto por reserva
+- Refinamentos em templates
+- **Registro:** `changelog.md` com justificativa
+
+**Mudanças médias (notificação ao orientador):**
+- Alteração de ferramentas de análise
+- Redução de escopo (ex: menos casos qualitativos)
+- Ajustes em critérios de inclusão/exclusão
+- **Processo:** Email + aguardar feedback
+
+**Mudanças críticas (aprovação formal obrigatória):**
+- Alteração de questões de pesquisa ou hipóteses
+- Mudança no desenho experimental
+- Redução drástica de amostra (< 8 projetos/grupo)
+- Alteração de métodos estatísticos principais
+- **Processo:** Reunião extraordinária + documento de proposta + aprovação explícita por escrito
+
+---
+
+# 18. Plano de documentação e reprodutibilidade
+
+## 18.1 Repositórios e convenções de nomeação
+
+**Repositório principal:**
+- Plataforma: GitHub (privado durante execução, público após defesa)
+- URL: `github.com/[username]/blockchain-vs-traditional-quality-experiment`
+
+**Estrutura:**
+```
+experiment-repo/
+├── planning/           # Plano e documentos de planejamento
+├── data/
+│   ├── raw/           # Saídas brutas (não versionado)
+│   ├── processed/     # Datasets consolidados (versionado)
+│   └── metadata/      # Inventário, logs, versões
+├── scripts/           # Scripts de coleta e processamento
+├── analysis/          # Notebooks Jupyter
+├── results/           # Gráficos, tabelas, visualizações
+└── docs/              # Documentação técnica
+```
+
+**Convenções de nomeação:**
+- Projetos: `[tipo]_[dominio]_[nome]_[tamanho]`
+  - Ex: `BC_DeFi_Uniswap_L`, `TRAD_API_Express_M`
+- Dados: `metrics_[nivel]_[timestamp].csv`
+  - Ex: `metrics_project_20251201.csv`
+- Scripts: `[etapa]_[acao].py`
+  - Ex: `01_collect_clone_repos.py`
+
+---
+
+## 18.2 Templates e artefatos padrão
+
+**Templates de coleta:**
+- `sample_inventory.csv`: Lista de projetos com metadados
+- `execution_log.csv`: Registro passo-a-passo
+- `exclusions_log.csv`: Arquivos/projetos excluídos
+- `tool_versions.json`: Versões exatas de ferramentas
+
+**Templates de análise:**
+- `analysis_template.ipynb`: Notebook Jupyter padrão
+- `case_study_template.md`: Template de estudos de caso
+
+**Definições operacionais:**
+- `definitions.md`: Definições de métricas e conceitos
+- `parameters.md`: Parâmetros de ferramentas
+
+**Localização:** `docs/templates/` no repositório
+
+---
+
+## 18.3 Plano de empacotamento para replicação futura
+
+**Pacote de replicação incluirá:**
+
+1. **Documentação completa:** Plano final, README detalhado, definições operacionais
+2. **Código versionado:** Scripts comentados, notebooks, requirements.txt, Dockerfile
+3. **Dados processados:** Datasets (CSV), metadados, logs (dados brutos não incluídos por tamanho)
+4. **Resultados:** Tabelas, gráficos, relatório final
+
+**Publicação:**
+- Repositório público no GitHub após defesa
+- DOI via Zenodo para citação acadêmica
+- Licença: MIT (código) e CC BY 4.0 (documentação/dados)
+
+**Instruções de replicação:** `REPLICATION.md` com passo-a-passo completo.
+
+---
+
+# 19. Plano de comunicação
+
+## 19.1 Públicos e mensagens-chave pré-execução
+
+| Público | Mensagem-chave | Momento |
+|---------|----------------|---------|
+| **Orientador** | Plano metodológico detalhado; objetivos, escopo, cronograma; aprovação necessária | Semana 0 |
+| **Banca Examinadora** | Visão geral; relevância acadêmica; resultados esperados | Defesa (pós-execução) |
+| **Comunidade Acadêmica** | Contribuição para ESE em blockchain; metodologia replicável | Pós-defesa (publicação) |
+
+**Mensagens principais:**
+- Objetivo: Comparar qualidade blockchain vs tradicional com métricas empíricas
+- Relevância: Primeira comparação sistemática e controlada
+- Escopo: 24 projetos OSS (12+12) com múltiplas métricas
+- Duração: 8 semanas
+- Resultados: Evidências quantitativas + recomendações práticas
+
+---
+
+## 19.2 Canais e frequência de comunicação
+
+**Durante execução:**
+
+| Canal | Uso | Frequência |
+|-------|-----|-----------|
+| Email | Comunicação formal (dúvidas, aprovações) | Conforme necessário |
+| Reuniões | Acompanhamento de progresso | Semanal (1h) |
+| Git | Commits de código/documentação | Diária |
+| Relatórios de checkpoint | Progresso em marcos críticos | 3-4 vezes |
+
+**Pós-execução:**
+
+| Canal | Uso | Momento |
+|-------|-----|---------|
+| Defesa pública | Apresentação para banca | Após conclusão |
+| Repositório público | Compartilhamento de código/dados | Após aprovação |
+| Publicação | Artigo em conferência/periódico | Futuro (opcional) |
+
+---
+
+## 19.3 Pontos de comunicação obrigatórios
+
+**Comunicação formal obrigatória (email + registro):**
+
+1. **Aprovação do plano (Semana 0):** Para orientador; plano completo + solicitação
+2. **Conclusão do piloto (Semana 1):** Para orientador; relatório + ajustes propostos
+3. **Dados consolidados (Semana 5):** Para orientador; estatísticas preliminares + problemas
+4. **Mudanças críticas (qualquer momento):** Para orientador; justificativa + proposta + impactos
+5. **Rascunho do relatório (Semana 8):** Para orientador; versão preliminar de resultados
+6. **Notificação de problemas graves (imediato):** Para orientador; impossibilidades, falhas críticas
+
+---
+
+# 20. Critérios de prontidão para execução (Definition of Ready)
+
+## 20.1 Checklist de prontidão
+
+**O experimento está pronto para iniciar quando TODOS os itens estiverem completos:**
+
+### Planejamento e Aprovações
+- [ ] Plano de experimento completo (seções 1-20) finalizado
+- [ ] Plano aprovado formalmente pelo orientador (email registrado)
+- [ ] Cronograma validado (9 semanas)
+- [ ] Riscos principais identificados com contingências
+
+### Infraestrutura Técnica
+- [ ] Ambiente configurado (Python 3.9+, Node.js 18+, Java 11+, Docker)
+- [ ] Ferramentas instaladas e testadas (Slither, Lizard, Radon, SonarQube, PMD, PyDriller, CLOC)
+- [ ] Versões documentadas em `tool_versions.json`
+- [ ] Estrutura de diretórios criada e Git inicializado
+- [ ] Backup configurado
+
+### Instrumentação
+- [ ] Templates criados (sample_inventory, execution_log, exclusions_log)
+- [ ] Scripts de coleta desenvolvidos e versionados
+- [ ] Definições operacionais em `definitions.md`
+- [ ] Parâmetros em `parameters.md`
+
+### Amostragem
+- [ ] Lista de 40-60 candidatos coletada via APIs
+- [ ] Critérios de inclusão/exclusão aplicados
+- [ ] Projetos estratificados (tamanho, maturidade, domínio)
+- [ ] 12 blockchain + 12 tradicionais selecionados (seed=42)
+- [ ] 3 projetos reserva por grupo
+- [ ] Balanceamento verificado estatisticamente
+
+### Piloto
+- [ ] 4 projetos piloto selecionados
+- [ ] Piloto executado completamente
+- [ ] Problemas documentados
+- [ ] Ajustes implementados
+- [ ] Re-execução após ajustes (se necessário)
+- [ ] Tempo viável confirmado (< 2h/projeto)
+
+### Recursos Humanos
+- [ ] PI com disponibilidade confirmada (20h/semana)
+- [ ] Orientador com disponibilidade semanal
+- [ ] Sem conflitos de interesse
+
+### Ética e Conformidade
+- [ ] Confirmado: sem necessidade de Comitê de Ética (dados públicos)
+- [ ] Confirmado: sem coleta de dados pessoais (LGPD/GDPR)
+- [ ] Licenças de projetos verificadas
+
+### Comunicação
+- [ ] Orientador informado sobre início
+- [ ] Canais definidos e testados
+- [ ] Reuniões semanais agendadas
+
+---
+
+## 20.2 Aprovações finais para iniciar a operação
+
+**Aprovação formal necessária:**
+- **Orientador acadêmico:** Aprovação explícita do plano completo via email
+- **Registro:** Email de aprovação arquivado no repositório
+- **Critério:** Plano revisado sem pendências críticas
+
+**Go/No-Go decision:**
+- **Go:** Todos os itens do checklist completos + aprovação do orientador
+- **No-Go:** Qualquer item crítico pendente (infraestrutura, piloto, aprovação)
+
+**Responsável pela decisão final:** Orientador acadêmico em conjunto com o PI.
